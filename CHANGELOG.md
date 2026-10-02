@@ -1,3 +1,26 @@
+## 0.1.0-alpha.3 - 2026-10-02
+
+### Added
+- **VaporNote Companion (`Alt + M`)**: A dedicated floating, translucent, multi-tab companion window for side-by-side note taking and web browsing. Features an opacity slider, 8-directional edge resizing, fullscreen toggle (`Alt + F`), and full state persistence across restarts.
+- **Quick Switcher Plugin (`Cmd + O`)**: A redesigned quick switcher engine supporting search prefixes, note aliases (`↪ Alias`), token highlighting, extension badges, and instant note creation (`Cmd + Shift + Enter`).
+- **Heading Switcher (`Cmd + Shift + H`)**: Quickly jump between sections in the current note. Features visual hierarchy bullets based on heading level (`#` to `######`), live match counts, and `Tab` to cycle between search results.
+- **Focus Address Bar (`Cmd + L`)**: Quickly jump directly into the active browser tab's address bar to enter a new URL or search query.
+- **URL Bar Context Menu**: Added a right-click context menu to browser URL bars supporting native Cut, Copy, Paste, and Select All actions.
+
+### Changed
+- **Modal Layering Above Web Views**: Moved Tab Groups prompts (create, switch, delete space) to the dedicated top-level modal stage, ensuring modals never get hidden behind active webviews.
+- **VaporNote Tab Shortcuts**: Added full keyboard navigation to VaporNote tabs—cycle tabs with `Cmd + Option + Left / Right`, close tabs with `Cmd + W`, and restore recently closed tabs with `Cmd + Shift + T`.
+- **Quick Switcher Prefix Rules**: Configure custom folder scopes, excluded extensions, and default destination folders per symbol prefix directly in Settings -> Quick Switcher.
+- **VaporNote Minimize Options**: Added an **Invisible Minimize** setting to hide VaporNote completely (0% opacity) rather than collapsing into a 36×36px floating restore icon.
+- **Checked Task Styling**: Checked task items (`- [x]`) now cleanly dim to muted grey without intrusive strikethroughs, maintaining markdown readability.
+- **Dedicated Webpage Reload (`Cmd + R`)**: Rebound and isolated browser page reloads so they can be remapped independently in Settings -> Hotkeys without interfering with the editor window.
+
+### Fixed
+- **Embedded Web Restriction Headers**: Stripped restrictive `X-Frame-Options` and `Content-Security-Policy` headers to allow sites that normally refuse to load inside app frames to render properly.
+- **Window Close Glitch (`Cmd + W`)**: Resolved an issue where pressing `Cmd + W` on an empty tab state or inside an overlay could close the main application window.
+- **Modal Click Dead Zones**: Fixed modal bounds lingering after closing, which previously blocked clicks from reaching underlying workspace tabs.
+- **Cross-Surface File Sync**: Edits made to Markdown notes inside VaporNote now immediately sync to open tabs in the main workspace and update the global file cache in real time.
+
 ## 0.1.0-alpha.2 - 2026-09-30
 
 ### Added
