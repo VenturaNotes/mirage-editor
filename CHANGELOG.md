@@ -1,3 +1,29 @@
+## 0.1.0-alpha.5 - 2026-10-03
+
+### Added
+- **PDF Anchor Plugin**: Precision spatial PDF reading and deep-linking suite natively integrated into the workspace via PDF.js:
+  - **Precision Spatial Anchors**: Link exact two-dimensional coordinates on any PDF page using normalized `pt=x,y` syntax (`[[document.pdf#p=3&pt=420,680]]`). Includes instant cursor drop (`Cmd+Shift+P`), interactive crosshair placement, and automatic wikilink copying to the clipboard.
+  - **Interactive On-Page Pins & Proximity Clustering**: Visual pill badges anchored directly over PDF pages. Closely grouped annotations (within 3% proximity) automatically collapse into clustered count badges.
+  - **Drag-to-Relocate Link Syncing**: Hold `Cmd` or `Ctrl` while dragging any anchor pin on the canvas to reposition it. Mirage automatically finds and updates the coordinate references across all citing Markdown notes in your vault.
+  - **Zotero-Style Slide-Out Drawer**: A collapsible panel listing all vault citations grouped by page number, featuring instant real-time search across note titles, cited snippets, and page numbers.
+  - **Chalkboard Dark Mode**: High-contrast, inverted dark reading mode (`Alt+D`) tailored for reading light PDFs in dark environments.
+  - **Glowing Ripple Beacon**: Navigating to an anchor or creating a new pin triggers an animated, 2-second glowing ripple beacon over the exact target coordinates.
+  - **Non-Blocking Streaming Resolution**: Backlink indexing scans notes in background micro-batches (30 files/tick), maintaining a fluid 60 FPS even across vaults with thousands of citations. Includes per-tab job cancellation and automatic memory eviction upon tab close.
+- **Split-Pane Multi-Webview Support**: Rewrote `WebContentsView` lifecycle management to support true multi-pane browsing. You can now tile independent browser tabs side-by-side across split leaves without panes hiding or hijacking visibility from one another.
+
+### Changed
+- **Co-Located Plugin Architecture**: Restructured plugins (`terminal`, `vapornote`, `quickSwitcher`, `progressPlanner`, and `pdfAnchor`) into self-contained directory modules. The build pipeline now automatically bundles scripts and mirrors co-located HTML and CSS assets directly to `dist/plugins/`.
+- **Deep-Link Wikilink Routing**: Wikilinks targeting PDF pages and coordinates (`#p=X&pt=X,Y`) are now intercepted vault-wide, opening the PDF custom view, scrolling smoothly to the point, and pulsing the coordinate beacon.
+- **Automated Config Migrations**: Introduced schema versioning (`configVersion: 2`) to the app configuration. Automatically injects newly introduced core plugins into existing installations without overriding user-disabled plugin preferences.
+- **Virtualized PDF Canvas Rendering**: PDF page rendering is now driven by an `IntersectionObserver` with upfront viewport dimension reservation, eliminating layout jumping and vertical flex squashing during fast scrolling.
+- **Pixel-Snapped Webview Bounds**: Rounded all WebContentsView bounds to exact integer coordinates, eliminating subpixel layout blurriness in high-DPI split views.
+
+### Fixed
+- **Split Pane Webview Occlusion**: Fixed an issue where switching tabs in one split pane broadcasted a global hide signal, causing active browser views in adjacent leaves to disappear.
+- **Inactive Tab Display Overrides**: Removed conflicting `!important` CSS rules from `.webview-holder`, ensuring `.hidden` correctly suppresses inactive webview tabs across split leaves.
+- **Orphaned WebContents Destruction**: Fixed an issue where recreating existing webview tabs could leave duplicate, orphaned `WebContentsView` instances attached to the main window.
+- **Plugin Stage Bundle Paths**: Fixed broken asset and stage bundle paths for Terminal and VaporNote overlays following the co-located plugin reorganization.
+
 ## 0.1.0-alpha.4 - 2026-10-02
 
 ### Added
