@@ -1,3 +1,34 @@
+## 0.1.0-alpha.4 - 2026-10-02
+
+### Added
+- **Progress Planner Plugin**: A comprehensive project, goal, and task management suite integrated into the workspace:
+  - **Goals Graph Dashboard**: An interactive, force-directed canvas that visualizes relationships between high-level goals, projects, and subtasks. Features sunflower-spiral child placement, topological leveling, directed arrowheads, impact level color coding (high, medium, low), and sub-tree frontier expansion (`⋯N`) and folding (`⌃`).
+  - **Agenda Calendar View**: Week and month views for time-scheduled and recurring tasks (`RRULE`). Features a 24-hour time grid, real-time "now" indicator line, drag-and-drop rescheduling with 15-minute snapping, and an overdue task inspector.
+  - **Active Task Tracking**: Pin any checkbox task line directly to the status bar chip (`⚡ Active: ...`). Automatically tracks task text, auto-clears when checked off, and opens the note directly in VaporNote on click.
+  - **Task Notifications & Chimes**: Automated reminder service that checks due times, plays a synthesized audio chime via the Web Audio API, and delivers system notifications.
+  - **Assign Date, Time & Recurrence Modal**: A quick-input modal featuring high-contrast native pickers for assigning due dates, times, and recurrence rules to markdown checkbox items.
+- **Global Vault Search & Tag Explorer**: Full text search across all notes in the vault with direct line jumping, alongside a dedicated tag browser that ranks tags by frequency and allows instant vault-wide tag filtering.
+- **Native Full-Width Status Bar**: Added a permanent bottom status bar to anchor workspace indicators, plugin status chips, and active task tracking.
+- **Interactive Markdown Tag Pills**: Inline `#tags` in the Live Preview editor now render as interactive badge pills that initiate a vault-wide tag search with a single click.
+- **Dynamic Tab Reordering & Split-to-Leaf Dragging**: Drag tabs horizontally within the tab bar for smooth, live reordering, or drag a tab down into edge drop zones (top, bottom, left, right) to split panes and move tabs seamlessly.
+- **Custom View Tab Framework**: Added an extensible view architecture allowing plugins to mount dedicated custom views (such as the Goals Graph and Agenda) with full state persistence across app restarts.
+
+### Changed
+- **Redesigned Web Viewer Chrome**: Modernized the in-app browser header with a dark pill address bar, SSL lock indicator, and custom minimalist navigation controls, removing native OS button styling.
+- **Fast O(1) Wikilink Resolution**: Rebuilt link and backlink resolution with exact path and basename index maps, substantially accelerating link clicks and graph parsing in large vaults.
+- **Asynchronous Chunked Cache Loading**: Vault cache disk reads now process in non-blocking batches of 2,500 entries, preventing UI stuttering and thread locking on startup.
+- **Multi-Line YAML Frontmatter Support**: Frontmatter parsing now natively supports multi-line YAML lists, array syntax, booleans, and list-style aliases.
+- **Software Layout-Aware Shortcuts**: Keyboard chord dispatching now strictly adheres to the active software keyboard layout (such as Dvorak or Colemak) instead of physical hardware key codes.
+- **Hub Node Collapsing**: Graph nodes with a large number of children automatically collapse lower-impact subtasks into informative `+N` badges to keep dense project graphs legible.
+- **Streamlined Indexing Notifications**: Progress notifications are now suppressed during small background updates, displaying toast notifications only when re-indexing large batches of notes.
+- **Quick Switcher Locale Formatting**: Search result badges and vault item totals in Quick Switcher modals now format large numbers with locale digit separators.
+
+### Fixed
+- **Sidebar Scrollbar Bleed**: Fixed an issue where the file tree scrollbar thumb remained visible on the left window edge when the sidebar was collapsed.
+- **Plugin Toggle Persistence**: Resolved a bug where disabled core plugins could re-enable themselves on application restart.
+- **URL Bar Out-of-Sync State**: Fixed the browser address bar failing to reflect the current URL when pages redirected or changed titles dynamically.
+- **Chromium Window Reload Interception**: Prevented native browser reload events from refreshing the entire application window, properly delegating the command to workspace actions.
+
 ## 0.1.0-alpha.3 - 2026-10-02
 
 ### Added
