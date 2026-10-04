@@ -1,3 +1,46 @@
+## 0.1.0-alpha.6 - 2026-10-04
+
+### Added
+
+- **AirSketch Plugin**: Complete live bidirectional sketching and stylus drawing companion for iPad, tablets, and external devices:
+  - **Embedded Local Server & Private Pairing**: Built-in HTTP server with Server-Sent Events (SSE) broadcasting, local network URL sharing, optional private security token authentication, and configurable port settings.
+  - **Touch & Stylus-Optimized Canvas**: High-performance tablet canvas distinguishing Apple Pencil/stylus from finger input, enabling seamless palm rejection, finger panning, and pinch-to-zoom.
+  - **Comprehensive Drawing Toolset**: Includes Pen, Eraser, Text, Marquee Box Select, Freeform Lasso Select, Hand/Pan tool, Fill toggle, and parametric vector Shapes (rectangles, squares, circles, ellipses, lines, and directional arrows).
+  - **Non-Destructive SVG Architecture**: Drawings are serialized into clean, standard SVGs embedded with JSON state metadata (`data-state`), allowing drawings to render natively as images while maintaining full vector editability.
+  - **Bidirectional Markdown Integration**: Run the `Create and Embed New Drawing at Cursor` command to generate an SVG drawing directly into your active note. Holding `Cmd` or `Ctrl` while clicking any embedded drawing in Markdown instantly loads that file onto the connected iPad.
+- **Web Viewer Suite (Video Enhancer, Ad Blocker & Incognito Mode)**:
+  - **Video Enhancer (YouTube & TikTok)**: Injected playback controls featuring keyboard shortcuts: `D` / `S` for variable speed stepping (0.1x), `R` to toggle/reset playback speed, `H` to hide player chrome, and `F` for seamless in-window pseudo-fullscreen without window detachment. Includes a floating speed badge overlay.
+  - **Integrated Ad Blocker**: Network-level blocking of ad tracking domains combined with client-side cosmetic filter injection and automatic 16x accelerated video ad skipping on YouTube.
+  - **Incognito Browsing Mode**: Optional ephemeral in-memory browsing session (`incognito-web`) that prevents caching of cookies, logins, and session history across tabs.
+- **Script Runner Core Plugin**:
+  - Migrated custom user script management into a modular core plugin (`script-runner`).
+  - Automatically watches the vault for changes to `.js` files to reload automation scripts in real time.
+  - Added dedicated commands and desktop notification feedback for reload and execution errors.
+
+### Changed
+
+- **PDF Selectable Text Layer**: Implemented a native PDF.js text layer overlay across all pages, enabling precise text selection, cursor highlighting, and clipboard copying.
+- **PDF Hyperlinks & Document Destinations**: Added interactive annotation link handling for PDFs. External URLs automatically open in an adjacent Web Viewer tab within the current split pane, while internal references navigate directly to the target destination page.
+- **PDF Direct Page Jump & Indicator**: Introduced a numeric `[ Page ] of Total` toolbar control supporting direct page entry on `Enter` alongside instant, non-animated page jumping.
+- **Live Cursor-Anchored PDF Zoom**: Added interactive mouse-wheel and pinch zooming anchored to the cursor position, utilizing instant GPU layout scaling debounced before high-resolution rasterization.
+- **Unified Address Bar Navigation (`Cmd/Ctrl+L`)**: Global address bar shortcut now contextually focuses and selects URL text in either the active split workspace webview or VaporNote depending on surface focus.
+- **VaporNote Refinements**:
+  - Updated default window opacity to 1.0 (opaque) and streamlined background styles.
+  - Enabled right-click context menu handling on the URL input.
+  - Relaxed tab deduplication constraints so duplicate web queries and URLs can be opened across multiple tabs.
+  - Search queries now format dynamically in tab titles (e.g., `query - Search`).
+- **Dynamic Settings Modal Navigation**: The settings sidebar now dynamically reflects enabled core plugins, displaying dedicated configuration tabs for User Scripts and AirSketch only when active.
+- **Automated Config Migrations**: Updated configuration schema versioning (`configVersion: 4`) with automatic migrations to register newly introduced core plugins (`script-runner` and `airsketch`).
+
+### Fixed
+
+- **PDF.js Worker & Document Destruction**: Fixed an error caused by calling the deprecated `pdfDoc.destroy()` method by adopting proper `loadingTask.destroy()` and `cleanup()` lifecycle routines to prevent memory leaks and orphaned worker processes.
+- **PDF Viewport Coordinate Deprecation**: Replaced deprecated `convertToViewportRectangle` coordinate calls with safe viewport affine transformation matrix calculations.
+- **Modal Mounting Flicker**: Eliminated a visual flash and layout pop during modal rendering by maintaining `visibility: hidden` until the stage DOM layout is prepared.
+- **VaporNote CSS Path Resolution**: Fixed broken relative asset paths in `vapornote.html` pointing to core main, workspace, and KaTeX stylesheets.
+- **Live Preview Checkbox Sizing**: Added explicit width, height, and SVG fill/stroke constraints to checkbox widgets to prevent checkmark paths from rendering as large filled shapes if stylesheet rules fail to apply.
+- **Split Pane Bounds Desync on Fullscreen Exit**: Added a bound resynchronization handler (`wcv:restore-bounds`) ensuring webviews restore their exact split pane positions after exiting in-window video fullscreen.
+
 ## 0.1.0-alpha.5 - 2026-10-03
 
 ### Added
