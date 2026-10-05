@@ -14,7 +14,7 @@
 - **Universal Quick Switcher Search**:
   - Enhanced the Quick Switcher to index all files within the vault (including PDFs and images) alongside cached Markdown documents, allowing non-text assets to be searched and opened directly from the palette.
 
-## Changed
+### Changed
 
 - **Element-Anchored PDF Zoom**: Overhauled zooming algorithms to lock to cursor percentage coordinates on the active page shell, completely eliminating CSS gap drift and layout jumps during step and pinch zooming.
 - **Inertia-Safe Pinch Zoom**: Trackpad pinch-to-zoom is now strictly bound to `Ctrl + Wheel` (excluding `Meta`), preventing accidental inertia and gesture-based over-zooming.
@@ -22,7 +22,7 @@
 - **Unified PDF Shortcut Forwarding**: Implemented input event interception inside isolated PDF views to transparently forward global workspace shortcuts, tab navigation chords, and tab closure (`Cmd/Ctrl+W`).
 - **VaporNote State & Bounds Management**: Refactored VaporNote window management logic to handle drag deltas, edge resizing, state persistence, and bounds synchronization seamlessly across minimized, normal, and fullscreen states.
 
-## Fixed
+### Fixed
 
 - **PDF Memory Retention**: Resolved memory leaks on tab closure by properly aborting active render tasks, destroying PDF.js worker instances, and unhooking resize observers.
 - **Multi-Tab WebContentsView Clipping**: Fixed visibility state transitions in VaporNote and split panes to ensure underlying WebContentsViews are cleanly hidden or restored when switching between Markdown, Image, PDF, and Web tabs.
