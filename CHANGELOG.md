@@ -1,3 +1,33 @@
+## 0.1.0-alpha.7 - 2026-10-05
+
+### Added
+
+- **Isolated WebContentsView PDF Architecture**:
+  - **Process & RAM Isolation**: Migrated the PDF viewer from an in-renderer DOM custom view to isolated `WebContentsView` instances across both the main workspace and VaporNote. Tab destruction now completely disposes of guest views and immediately releases physical memory back to the OS.
+  - **LRU Canvas Caching**: Implemented a Least-Recently-Used (LRU) canvas eviction policy limiting high-DPI rendered canvases in GPU memory (capped at 18 pages). Off-screen canvases are unloaded dynamically while preserving the underlying text selection layer.
+  - **Native Chromium Find in Page (`Cmd/Ctrl+F`)**: Added a floating search bar integrated with Chromium’s native `findInPage` engine, featuring active match ordinal counters (e.g., `3/12`), next/previous result navigation, and full keyboard navigation.
+  - **Draggable Anchor Relocation**: Hold `Cmd` or `Ctrl` while dragging any anchor pin marker across a PDF page to interactively reposition it; updated coordinates are automatically written back to referencing Markdown notes across the vault.
+- **VaporNote Multi-Format Tabs (PDF & Image Viewer)**:
+  - **Isolated PDF Tabs in VaporNote**: Opened PDFs now render inside dedicated VaporNote tabs with full support for dark mode inversion, anchor drawers, and page navigation.
+  - **Integrated Image Viewer**: Added native image tab rendering for common image formats (`.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`, `.svg`, etc.), featuring click-to-zoom toggling between container-fit and natural dimensions, image context menu support, and missing file fallback states.
+  - **Intelligent Wikilink Routing**: Wikilinks opened within VaporNote now parse target file extensions to automatically route into Markdown, PDF, or image tabs.
+- **Universal Quick Switcher Search**:
+  - Enhanced the Quick Switcher to index all files within the vault (including PDFs and images) alongside cached Markdown documents, allowing non-text assets to be searched and opened directly from the palette.
+
+## Changed
+
+- **Element-Anchored PDF Zoom**: Overhauled zooming algorithms to lock to cursor percentage coordinates on the active page shell, completely eliminating CSS gap drift and layout jumps during step and pinch zooming.
+- **Inertia-Safe Pinch Zoom**: Trackpad pinch-to-zoom is now strictly bound to `Ctrl + Wheel` (excluding `Meta`), preventing accidental inertia and gesture-based over-zooming.
+- **Vault File Listing API**: Updated `Vault.listFiles` and `Vault.listFilesAsync` to accept empty filter arrays or wildcard `*` patterns to retrieve all vault files regardless of extension.
+- **Unified PDF Shortcut Forwarding**: Implemented input event interception inside isolated PDF views to transparently forward global workspace shortcuts, tab navigation chords, and tab closure (`Cmd/Ctrl+W`).
+- **VaporNote State & Bounds Management**: Refactored VaporNote window management logic to handle drag deltas, edge resizing, state persistence, and bounds synchronization seamlessly across minimized, normal, and fullscreen states.
+
+## Fixed
+
+- **PDF Memory Retention**: Resolved memory leaks on tab closure by properly aborting active render tasks, destroying PDF.js worker instances, and unhooking resize observers.
+- **Multi-Tab WebContentsView Clipping**: Fixed visibility state transitions in VaporNote and split panes to ensure underlying WebContentsViews are cleanly hidden or restored when switching between Markdown, Image, PDF, and Web tabs.
+- **PDF Anchor Link Navigation**: Fixed a timing issue when navigating directly to PDF coordinates from Markdown wikilinks by coordinating bounds rendering with anchor beacon triggers.
+
 ## 0.1.0-alpha.6 - 2026-10-04
 
 ### Added
