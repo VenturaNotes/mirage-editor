@@ -1,3 +1,22 @@
+## 0.1.0-alpha.8 - 2026-10-06
+
+### Added
+- **Smart Hotkey Conflict Prevention**:
+  - **Collision Protection**: Assigning a shortcut that is already in use will no longer silently overwrite your existing command. Both commands now retain the shortcut, but execution is safely paused to prevent unintended actions until the conflict is resolved.
+  - **Visual Conflict Badges**: The Hotkeys settings panel now highlights overlapping shortcuts with a warning banner and inline `⚠️ Conflict (Disabled)` badges.
+  - **Helpful Alerts**: If you press a shortcut that has multiple assigned commands, a notification will pop up explaining which commands are conflicting so you can easily update them.
+### Changed
+- **Seamless VaporNote Opacity**:
+  - Web and PDF tabs inside VaporNote now fade uniformly alongside the rest of the window when adjusting the opacity slider. Newly opened web tabs also inherit your current transparency level immediately.
+- **Reliable Notification Popups**:
+  - Notification popups will no longer get clipped or cut off when resizing the app window or switching in and out of fullscreen mode.
+  - Repeated alerts with the same message (such as duplicate hotkey warnings) will now refresh cleanly in place instead of cluttering your screen with duplicate cards.
+- **Cleaner Command Palette**:
+  - Streamlined command subtitles in the palette by removing redundant labels, keeping the focus entirely on the command names and shortcut hints.
+### Fixed
+- **VaporNote Tab Overlap on Drag/Resize**:
+  - Fixed an issue where switching from a Web or PDF tab to a Markdown or image note could cause the hidden web view to pop back into view when moving or resizing the VaporNote window.
+
 ## 0.1.0-alpha.7 - 2026-10-05
 
 ### Added
