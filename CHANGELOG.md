@@ -1,3 +1,36 @@
+## 0.1.0-alpha.9 - 2026-10-07
+
+### Added
+
+- **Sidebar File & Folder Context Menu**:
+  - **Move to Trash**: Right-clicking any file or folder in the sidebar now lets you safely move it to your system Trash (macOS) or Recycle Bin (Windows).
+  - **Reveal in File Manager**: Added a native "Reveal in Finder" / "Show in File Manager" option to quickly jump to any note or asset in your operating system's file browser.
+  - **Smart Cleanup**: Trashing a file or folder automatically closes any open editor tabs referencing it across both the main workspace and VaporNote, keeping your workspace clean.
+- **Custom Stable Scrollbar for Markdown**:
+  - **Overhauled Scroll Ergonomics**: Replaced inconsistent native browser scrollbars with a custom, fluid scrollbar designed specifically for the Markdown editor.
+  - **Edge Snapping**: Dragging the scrollbar thumb to the extreme top or bottom edge now cleanly snaps the viewport to the absolute beginning or end of your document in a single, smooth drag.
+  - **Dynamic Layout Sync**: The scrollbar automatically recalibrates its size and position as images load, math blocks (KaTeX) render, headings fold, or tabs switch—eliminating jumpy scroll behavior in long notes.
+  - **Jump-Free Dragging**: Clicking and dragging the thumb preserves your relative cursor offset, preventing unexpected position shifts when grabbing the scrollbar.
+
+### Changed
+
+- **Google Sign-In Support in Web Viewer**:
+  - Enhanced network request headers during Google authentication (`accounts.google.com`). This resolves the *"This browser or app may not be secure"* block, allowing seamless login to Google accounts and services directly inside Web Viewer tabs.
+- **Trash-Aware "Reopen Closed Tab"**:
+  - Reopening closed tabs (`Cmd/Ctrl+Shift+T`) now checks whether files still exist on disk. Any notes or folders that were moved to the trash or deleted externally are skipped automatically rather than failing to load.
+  - Moving a note to the trash immediately purges it from your closed tab history.
+- **Safer Document Autosave**:
+  - The editor now verifies that a note still exists in the vault before saving background changes, preventing trashed or deleted files from being accidentally recreated by lingering editor buffers.
+- **Folder Change Detection**:
+  - Improved real-time vault file watching to actively monitor folder creation and removal, ensuring the sidebar stays synchronized when directories are moved or altered outside the app.
+
+### Fixed
+
+- **Eliminated Scrollbar Jumps on Tab Switching**:
+  - Fixed an issue where switching between workspace tabs or unhiding VaporNote could cause editor scroll positions to misalign before the layout finished rendering.
+- **Prevented Ghost Tab Restoration**:
+  - Fixed an issue where pressing the reopen tab shortcut after deleting files could restore broken, empty editor panes.
+
 ## 0.1.0-alpha.8 - 2026-10-06
 
 ### Added
