@@ -1,3 +1,34 @@
+
+## 0.1.0-alpha.10 - 2026-10-08
+
+### Added
+
+- **Terminal Context Menu & Native Shortcuts**:
+  - **Native Context Menu**: Right-clicking anywhere inside the floating terminal now opens a context menu with quick actions for Copy, Paste, Select All, and Clear Buffer.
+  - **Standard Terminal Shortcuts**: Added native keyboard shortcut support for `Cmd+C` (copy selection), `Cmd+V` (paste clipboard), `Cmd+A` (select all), and `Cmd+K` (clear screen and buffer). Shell signals such as `Ctrl+C` (SIGINT) remain untouched, while general app hotkeys continue to forward smoothly to the main workspace.
+- **Interactive Input Prompts**:
+  - Added an integrated, asynchronous input dialog system (`app.prompt`) that allows plugins, scripts, and commands to request text input via a clean modal popup with full keyboard navigation (Enter to submit, Escape to cancel).
+- **Web Viewer Automation Bridge**:
+  - Introduced background APIs allowing automation tools and notifier scripts to inspect active web tabs across both the main workspace and VaporNote, with support for running client-side JavaScript evaluations safely inside embedded pages.
+
+### Changed
+
+- **Intelligent "Close Active Tab" (`Cmd/Ctrl+W`)**:
+  - Registered tab closing as a first-class app command that dynamically detects focus: pressing `Cmd/Ctrl+W` while interacting with VaporNote closes the active VaporNote tab, while pressing it in the editor closes the active workspace tab.
+- **Terminal Selection Contrast & Stacking**:
+  - Overhauled selection rendering in the terminal. Selected text is now stacked above the highlight layer with high-contrast colors, ensuring highlighted commands and log outputs remain sharp and readable.
+- **VaporNote Focus Retention**:
+  - Switching between web/PDF tabs and Markdown notes in VaporNote now automatically restores keyboard focus directly to the editor, eliminating the need to click into the note before typing.
+- **Modal Dismissal Safety**:
+  - Modal input dialogs now cleanly dispatch cancellation events when dismissed via Escape or backdrop clicks, preventing hanging actions or unintended trigger events in the command palette.
+
+### Fixed
+
+- **Terminal Text Selection Occlusion**:
+  - Fixed an issue where selection highlight boxes in the terminal could render on top of the text layer, obscuring the characters underneath.
+- **Cross-Surface Shortcut Routing**:
+  - Fixed an issue where pressing `Cmd/Ctrl+W` could fail to register or close the wrong surface when transitioning focus between VaporNote and the primary editor window.
+
 ## 0.1.0-alpha.9 - 2026-10-07
 
 ### Added
