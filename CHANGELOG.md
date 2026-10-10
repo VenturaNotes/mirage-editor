@@ -1,3 +1,34 @@
+## 0.1.0-alpha.11 - 2026-10-09
+
+### Added
+
+- **In-Vault Community Plugins System**:
+  - **Zero-Build Plugin Architecture**: You can now create and run custom plugins directly within your vault (`.mirage-editor/plugins/`) using standard JavaScript, CSS, and JSON—no external build tools, Node installations, or bundlers required.
+  - **One-Click Plugin Scaffolding**: Added a new **Community Plugins** section in Settings where you can instantly scaffold a new plugin. Mirage Editor automatically generates starter `main.js`, `manifest.json`, and `styles.css` files.
+  - **Live Hot Reloading**: Mirage Editor actively watches plugin directories. Modifying and saving plugin code or styles immediately hot-reloads the plugin and updates the interface in real time.
+  - **In-App Code Editing**: Installed plugins display direct file chips (`✎ main.js`, `✎ styles.css`, etc.) in Settings. Clicking any chip opens the file in Mirage Editor for instant editing.
+  - **Dynamic Plugin Settings Tabs**: Plugins can register custom settings tabs and persistent data storage (`data.json`), which seamlessly appear in the Settings sidebar under a dedicated **Installed Plugins** section.
+- **Dedicated Code & Config File Editor**:
+  - Opening non-Markdown code or configuration files (`.js`, `.ts`, `.json`, `.css`, `.py`, `.sh`, `.yaml`, `.toml`, etc.) now launches a purpose-built code editing environment.
+  - Features line number gutters, monospace typography, 2-space tab indentation, and lightweight syntax highlighting for keywords, strings, numbers, and comments.
+- **Seamless Raw YAML Frontmatter Editing**:
+  - Added a clickable **✎ Edit raw** action to note Properties headers, allowing you to instantly switch from the visual properties card to raw text YAML editing.
+  - The editor automatically collapses raw YAML back into the visual Properties card as soon as your cursor navigates back down into the note body.
+
+### Changed
+
+- **Task Auto-Dating & Source Note Provenance (Progress Planner)**:
+  - **Auto-Append Completion Date**: Added a Progress Planner setting to automatically stamp tasks with their completion date (`✅ YYYY-MM-DD`) when marked complete. Unchecking a task cleanly removes the date stamp.
+  - **Auto-Append Source Note Link**: Added an option to automatically append a wikilink to the active note (`[[Note Name]]`) upon completion, preserving task provenance when copying or archiving tasks across files.
+
+### Fixed
+
+- **Frontmatter Deletion & Boundary Corruption**:
+  - Fixed an issue where pressing `Backspace` at the top of a note body or using `Cmd/Ctrl+A` to select all text would delete into hidden frontmatter and corrupt note metadata. Deletions and selections are now strictly clamped to the note body.
+- **Cursor Glitch on Note Open**:
+  - Fixed a bug where opening a note placed the initial cursor at position `0` (above the properties widget). Cursors now land directly on the first line of the note body.
+- **Task Block Anchor Invalidation**:
+  - Fixed a bug where completing tasks with block references (e.g., `^task-123`) appended timestamps to the end of the line and broke the block syntax. Completion stamps are now inserted before the anchor.
 
 ## 0.1.0-alpha.10 - 2026-10-08
 
