@@ -1,3 +1,34 @@
+## 0.1.0-alpha.12 - 2026-10-13
+
+### Added
+
+- **Dedicated OAuth & Single Sign-On (SSO) Popups**:
+  - **Isolated Login Windows**: Third-party authentication dialogs (Google, Apple, GitHub, Discord, Microsoft, etc.) now open inside dedicated, centered modal popup windows rather than hijacking your active tab or failing to load.
+  - **Quick Cancellation**: Added a floating close button (✕) and full keyboard support (`Escape` or `Cmd/Ctrl+W`) to quickly dismiss login dialogs without interrupting your browsing session.
+- **In-App Web Error & Offline Pages**:
+  - Replaced blank screens and silent failures with a custom, dark-themed error page (*"This site can’t be reached"*) whenever a page fails to load due to connection loss, DNS errors, or server timeouts.
+  - Features clear diagnostic details and an interactive **Try Again** button that preserves and retries your intended destination URL once your connection is restored.
+- **"Open in Default Browser" Button & Command**:
+  - Added an external browser button directly into the navigation bar of both the main Web Viewer and VaporNote web tabs.
+  - Registered a new Command Palette action (**Web Viewer: Open in Default Browser**) to quickly hand off the current webpage to your system's default browser (Safari, Chrome, Firefox, etc.).
+
+### Changed
+
+- **Seamless Google Sign-In & Bot Detection Bypass**:
+  - Completely overhauled Google Account authentication headers. By keeping Chromium engine tokens aligned with browser client hints (`Sec-CH-UA`) and disabling automation flags, Google sign-in rejections (*"This browser or app may not be secure"*) are eliminated.
+  - Added automatic recovery that flushes invalid authentication cookies if an account verification challenge is triggered, preventing stuck login loops.
+- **Accurate Surface Routing for Search & Quick Switcher**:
+  - Opening links or searching via the Quick Switcher and Smart Web Search now reliably targets your main editor window whenever VaporNote is minimized or hidden, preventing tabs from quietly opening in background surfaces.
+
+### Fixed
+
+- **VaporNote Focus Theft on App Launch**:
+  - Fixed an issue where VaporNote's background startup routine could steal keyboard focus away from the main workspace when launching Mirage Editor.
+- **Error Page URL Recovery on Reload**:
+  - Fixed an issue where clicking the reload button after a failed page load would attempt to reload the offline error page rather than retrying the actual target website.
+- **URL Bar Integrity on Failed Navigation**:
+  - Fixed an issue where failed navigation attempts could overwrite the address bar with raw error page data URLs.
+
 ## 0.1.0-alpha.11 - 2026-10-09
 
 ### Added
