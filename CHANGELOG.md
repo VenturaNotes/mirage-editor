@@ -1,3 +1,27 @@
+## 0.1.0-alpha.13 - 2026-10-15
+
+### Added
+
+- **Clear Web Viewer Cache & Cookies**:
+  - **Browsing Data Purge**: Added a new **Browsing Data & Cache** section in Web Viewer settings along with a dedicated Command Palette action (**Web Viewer: Clear Web Viewer Cache & Data**).
+  - **Full Session Reset**: Easily wipe all cached files, cookies, network resolver entries, and storage data across browsing sessions with a single click.
+
+### Changed
+
+- **Expanded Website & Retail Compatibility**:
+  - **Firewall & Bot Detection Bypass**: Overhauled network request profiles and removed artificial browser switches to resolve blocks and access denials on sites protected by advanced Web Application Firewalls (such as Akamai or Cloudflare on retail and banking sites).
+  - **Authentic Browser Identity**: Replaced fragmented User-Agent strings with clean, native Chrome headers that perfectly match underlying browser capabilities.
+  - **Standardized Security Headers**: Preserved native Content Security Policies (CSP) and cookie-handling headers, preventing layout breakage and authentication failures on complex web applications.
+- **CSP-Resistant VaporNote Transparency**:
+  - Migrated VaporNote web translucency to native stylesheet injection. The opacity slider now applies smoothly and reliably across all websites, including sites with strict Content Security Policies (such as Reddit and Google).
+
+### Fixed
+
+- **Main Workspace Web Tab Opacity Leak**:
+  - Fixed an issue where opacity adjustments in VaporNote could occasionally bleed into and dim web tabs open in the primary workspace. Workspace tabs now strictly maintain full opacity.
+- **VaporNote PDF Backdrop Opacity**:
+  - Fixed an issue where PDF tabs inside VaporNote initialized with a solid background color, preventing them from fading uniformly when using the opacity slider.
+
 ## 0.1.0-alpha.12 - 2026-10-13
 
 ### Added
