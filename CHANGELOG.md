@@ -1,3 +1,38 @@
+## 0.1.0-alpha.14 - 2026-10-18
+
+### Added
+
+- **iCloud Calendar Integration (CalDAV Sync)**:
+  - **Native Apple Calendar Sync**: Connect your iCloud account using an App-Specific Password to display your Apple Calendars directly alongside your Markdown tasks in the Progress Planner Agenda view.
+  - **Auto-Discovery & Calendar Colors**: Automatically discovers all personal and shared calendars associated with your Apple ID, preserving their native calendar colors and event names.
+  - **Background & Manual Syncing**: Events sync automatically in the background on a configurable interval (defaulting to 15 minutes). Added a **🔄 Sync** button directly to the Agenda view navigation bar and a Command Palette shortcut (**Progress: Sync iCloud Calendar (CalDAV)**) for instant on-demand updates.
+  - **Rich Event Inspector**: Clicking an iCloud event displays full location info, descriptions, and recurring schedule details, along with a one-click button to open iCloud Calendar in a dedicated Web Viewer tab.
+- **Calendar & Source Multi-Select Filter**:
+  - Added an interactive **🗓️ Calendars** dropdown menu to the Agenda navigation bar.
+  - Easily toggle individual iCloud calendars or local Markdown tasks on and off, with convenient **All** and **None** quick actions. Your selected filter preferences are saved and remembered automatically across app restarts.
+
+### Changed
+
+- **Intelligent Wikilink Resolution for Attachments & PDFs**:
+  - Wikilinks pointing to non-markdown files (such as `[[diagram.png]]` or `[[paper.pdf]]`) now resolve automatically across the vault. The cache searches relative note folders, dedicated `- Attachments` directories, and the vault root without requiring manual full path references.
+- **Enhanced PDF Anchor Navigation & Tab Reuse**:
+  - Clicking a PDF anchor link (e.g. `[[manual.pdf#p=4&pt=200,300]]` or `[[manual.pdf#p=4]]`) now detects and focuses existing open PDF tabs across all split panes instead of opening duplicate viewer tabs.
+  - Page-only anchor references (without point coordinates) now gracefully center and focus on the target page.
+- **Persistent Agenda Mode & Scroll Position Memory**:
+  - Your preferred Agenda view mode (**Week** vs. **Month**) now persists across sessions and tab reloads.
+  - The weekly schedule grid now remembers your exact vertical scroll position when switching between workspace tabs, eliminating jumpy resets. Clicking the **Today** button smoothly recenters the timeline to the current hour.
+- **Refined Agenda Timeline Styling**:
+  - Upgraded the weekly timeline with custom-styled scrollbars and visual cloud badges (`☁️`) to clearly differentiate external calendar events from local vault tasks.
+
+### Fixed
+
+- **PDF Anchor Link Loading Races**:
+  - Fixed an issue where clicking a PDF anchor link from a Markdown note while the PDF viewer was still initializing would fail to scroll to the target coordinates. Navigations are now safely queued and executed once page canvases mount.
+- **Attachment Wikilink Extension Corruption**:
+  - Fixed a bug where non-markdown targets could mistakenly have `.md` appended during link normalization, breaking wikilinks to PDFs and media files.
+- **Daily Recurring CalDAV Events**:
+  - Fixed an issue where daily recurring events (`FREQ=DAILY`) from calendar feeds failed to display on subsequent dates following their initial start date.
+
 ## 0.1.0-alpha.13 - 2026-10-15
 
 ### Added
