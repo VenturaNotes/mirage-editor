@@ -1,3 +1,37 @@
+## 0.1.0-alpha.15 - 2026-10-20
+
+### New Features
+
+- **Default Location for New Notes**:
+  - Added a new setting under **General Settings** allowing you to customize where new notes are saved when clicking unresolved internal links:
+    - **Vault root**: Saves all new notes at the top level of your vault.
+    - **Same folder as active note**: Creates the new note alongside the file you are currently editing.
+    - **Custom folder**: Automatically routes all newly created notes into a designated folder (such as `Inbox` or `Notes`).
+- **Visual Unresolved Wikilinks**:
+  - Internal links pointing to notes or attachments that do not yet exist are now displayed with a distinct muted opacity (50%), hover styling, and a tooltip indicator (*"does not exist"*). Once the target note is created, links instantly update to full opacity across all open tabs.
+- **Clean Document Creation**:
+  - Creating notes via unresolved wikilinks or in VaporNote now initializes clean, blank documents rather than automatically injecting forced `# Heading` titles at the top of the file.
+
+### Improvements
+
+- **High-Speed Link Resolution & Duplicate Disambiguation**:
+  - **Negative Link Caching**: Implemented in-memory negative caching for missing links, eliminating filesystem traversal and typing lag in large vaults with hundreds of unresolved wikilinks.
+  - **Intelligent Proximity Routing**: When multiple notes share the same name across different folders, links automatically resolve to the file residing in the same directory as the active note.
+  - **Automatic Collision Disambiguation**: If creating a new note creates a filename conflict with an existing note elsewhere in your vault, Mirage Editor automatically updates existing references across the vault into path-qualified links (e.g., `[[Projects/Summary|Summary]]`), ensuring your existing backlinks never break or misroute.
+  - **Pre-Indexed Attachments**: Media assets, PDFs, images, and audio files are now pre-indexed into memory alongside Markdown notes for near-instant link and embed resolution.
+- **Native Application Menu & Universal `Cmd/Ctrl+W`**:
+  - Added a native system application menu bar (`File`, `Edit`, `View`, `Window`).
+  - Pressing `Cmd/Ctrl+W` now cleanly dismisses open modals (such as Settings or Quick Switcher) and integrates with the native application menu to close active tabs across both the main workspace and VaporNote.
+- **Seamless Focus Handoff Between Web and Markdown Tabs**:
+  - Switching between embedded web/PDF tabs and Markdown documents or custom views (such as Progress Planner Agenda) now immediately releases webview focus, ensuring keyboard events and shortcuts work without requiring extra mouse clicks.
+
+### Fixes
+
+- **Empty Workspace Collapse on Last Tab Close**:
+  - Fixed an issue where closing the final open tab in the workspace could detach the pane and leave the window completely blank. The workspace now automatically preserves a clean, active editor leaf ready for use.
+- **Note Titles Containing Dots**:
+  - Fixed an issue where note titles with periods (such as `[[Dr. Jekyll and Mr. Hyde]]`) were misidentified as non-markdown file extensions, which prevented the target note from resolving correctly.
+
 ## 0.1.0-alpha.14 - 2026-10-18
 
 ### Added
