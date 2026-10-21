@@ -1,3 +1,37 @@
+## 0.1.0-alpha.16 - 2026-10-21
+
+### New Features
+
+- **Web History Navigation Shortcuts (`Cmd/Ctrl+[` and `Cmd/Ctrl+]`)**:
+  - Added dedicated navigation commands to move backward (`Cmd/Ctrl+[`) and forward (`Cmd/Ctrl+]`) through your browsing history, as well as a quick reload shortcut (`Cmd/Ctrl+R`).
+  - Navigation commands automatically target either the active workspace web tab or your active VaporNote web tab based on focus.
+- **Full Web Navigation History Preservation**:
+  - Reopening closed web tabs (`Cmd/Ctrl+Shift+T`) or restoring your workspace on launch now restores your full backward/forward navigation history stack, allowing you to seamlessly navigate back to prior pages.
+- **VaporNote In-Editor List Formatting & Search**:
+  - Added native list-toggling shortcuts directly into VaporNote Markdown notes:
+    - **Bullet List**: `Cmd/Ctrl+Shift+8`
+    - **Numbered List**: `Cmd/Ctrl+Shift+7`
+    - **Checkbox List**: `Cmd/Ctrl+Shift+C`
+    - **Find in Note**: `Cmd/Ctrl+F`
+
+### Improvements
+
+- **Native Text Navigation Preserved in Web Viewer**:
+  - Web search bars and text inputs now preserve standard text editing shortcuts (`Cmd+Left` to jump to line start, `Cmd+Right` to jump to line end, and `Cmd+Shift+Left/Right` to highlight text). Tab navigation is now strictly bound to `Cmd+Option+Left/Right`, preventing conflicts while typing.
+- **Native macOS Full-Screen Toggle (`Cmd+Ctrl+F`)**:
+  - Added support for the standard macOS full-screen toggle (`Cmd+Ctrl+F`) across the main window, embedded Web Views, and VaporNote.
+- **Robust Terminal Clipboard & Input Handling**:
+  - Overhauled clipboard event handling in the floating terminal for faster, more dependable copying (`Cmd+C`), pasting (`Cmd+V`), selecting all (`Cmd+A`), and screen clearing (`Cmd+K`) via both hotkeys and the right-click context menu.
+- **Universal Shift-Symbol Shortcut Mapping**:
+  - Improved keyboard chord parsing across operating systems so shifted number keys (such as `*` for `Shift+8` or `&` for `Shift+7`) reliably trigger their assigned shortcuts regardless of keyboard layout.
+
+### Fixes
+
+- **VaporNote Shortcut Target Desync**:
+  - Fixed an issue where triggering list formatting or search commands while working in VaporNote could mistakenly execute against the background editor tab rather than the active VaporNote note.
+- **Browser Address Bar Focus Capture**:
+  - Fixed an issue where embedded web views could intercept and swallow `Cmd+L`, preventing the address bar from being focused via keyboard shortcut.
+
 ## 0.1.0-alpha.15 - 2026-10-20
 
 ### New Features
