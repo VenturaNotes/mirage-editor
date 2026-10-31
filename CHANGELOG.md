@@ -1,3 +1,12 @@
+## 0.1.0-alpha.17 - 2026-10-30
+
+### Improvements
+
+- **Decluttered Goal Canvas (Progress Planner)**:
+  - **Cleaner Hierarchy by Default**: Checkbox subtasks are now hidden on the goal graph canvas by default, keeping the visualizer clean and focused on high-level goals and project relationships.
+  - **"Show subtasks on canvas" Toggle**: Added a toggle in the Dashboard view settings panel so you can easily show or hide individual checkbox tasks on demand.
+  - **Saved Preference**: Your canvas subtask visibility preference is automatically saved and remembered across sessions.
+
 ## 0.1.0-alpha.16 - 2026-10-21
 
 ### New Features
