@@ -1,3 +1,36 @@
+## 0.1.0-alpha.18 - 2026-11-3
+
+### New Features
+
+- **Task Board & List View**:
+  - **Kanban Board Mode**: Visualize your tasks across dedicated columns for High Priority, Medium Priority, Low Priority, No Priority, and Completed items.
+  - **Compact List Table Mode**: Scan and manage tasks in a structured tabular view with columns for completion status, priority, task title, origin file, and note shortcuts.
+  - **Comprehensive Filtering & Search**: Instantaneously filter tasks by completion state (Active, All, Completed), priority level, and source document, or search across task titles and note paths in real time.
+  - **Keyboard Shortcut & Command**: Open the new Board & List view anytime using `Cmd+Shift+L` or through the command palette (`Open Task List & Board View`).
+  - **Smooth Infinite Scrolling**: Built-in chunked rendering keeps scrolling fluid and responsive across vaults with large volumes of tasks.
+
+### Improvements
+
+- **Progress Dashboard Node Inspector**:
+  - **Hierarchical Subtask Tree**: Subtasks are now organized using a preorder tree hierarchy with visual indentation, keeping nested tasks grouped under their respective parents.
+  - **Ghosted Context Parents**: When applying priority filters in the inspector, parent items without the selected priority remain visible in a dimmed state (`▾`) so you never lose the structural context of nested items.
+  - **Inline Task Actions**: Toggle task completion or change task priorities directly inside the inspector sidebar without having to open the note in the editor.
+  - **Hide Completed Filter**: Added a toggle to hide completed subtasks in the inspector sidebar, saving your preference across sessions.
+  - **Resizable Sidebar**: Freely adjust the inspector sidebar width between 260px and 800px with a new draggable resizer handle; widths are automatically remembered.
+  - **Cross-Note Origin Badges**: Subtasks referenced from other notes now display origin badges (e.g., `from Daily`) to clarify where tasks are sourced.
+  - **Persistent Inspector Selection**: Selecting a node on the dashboard graph now persists cleanly even when the graph canvas re-renders.
+
+- **Priority Tagging & Frontmatter Handling**:
+  - **Clean Priority Tags**: Migrated priority syntax to clean, standard tags (`#high`, `#medium`, `#low`), automatically stripping them from display titles to keep task labels readable.
+  - **Frontmatter Tag Prioritization**: Note-level priority is now strictly driven by frontmatter `tags`, preventing priority tags written in the body text or checkboxes from incorrectly overriding file-level goals.
+  - **Frontmatter Tag Formats**: Setting a note's priority now seamlessly updates standard YAML tags (inline lists, multi-line arrays, or single values) and cleans up legacy `impact:` keys.
+
+### Fixes
+
+- **Task Linking & Hierarchy**:
+  - **Cleaner Subtask Creation**: Adding subtasks beneath parent items now links cleanly to the parent note (`[[Note]]`) without inserting messy block anchors (such as `^tsk-xxxx`) into your markdown files.
+  - **Cross-File Checkbox Isolation**: Fixed an issue where tasks referencing checkboxes in different markdown files could attempt invalid cross-file block inheritance; tasks now reliably attach directly to the target document.
+ 
 ## 0.1.0-alpha.17 - 2026-10-30
 
 ### Improvements
