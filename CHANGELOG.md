@@ -1,3 +1,52 @@
+## 0.1.0-alpha.19 - 2026-11-4
+
+### New Features
+
+- **Universal Tab History & Navigation**:
+  - **Cross-Type History Stack**: Workspace tabs now maintain a unified history stack across all content types. You can seamlessly navigate back and forth between Markdown notes, Web pages, and PDF documents within the same tab without losing your place.
+  - **Editor Navigation Header**: Markdown note tabs now feature a top navigation bar with Back and Forward buttons alongside the active document path.
+  - **Universal Shortcuts**: Standardized `Cmd+[` (Go Back) and `Cmd+]` (Go Forward) across the entire application—working consistently in Markdown notes, Web views, PDF files, and VaporNote.
+  - **Dynamic Button States**: Back and Forward buttons across note headers, web toolbars, and PDF viewports now automatically enable or disable to visually reflect available history.
+
+- **Native Spaces (Workspace Tab Groups)**:
+  - **Seamless Core Integration**: Tab Groups have been upgraded from an optional plugin into a core workspace capability ("Spaces"), offering instant, zero-latency workspace switching.
+  - **Live In-Memory State**: Switching spaces now preserves live webviews and tab states in memory, eliminating tab reloads, lost form inputs, and reset scroll positions.
+  - **Status Bar Space Switcher**: A new status bar indicator displays your current space with one-click access to switch between workspaces.
+  - **Dedicated Spaces Commands**: Manage multi-project setups effortlessly using the Command Palette to switch (`Cmd+Shift+P`), create, rename, delete, and move tabs between spaces.
+
+- **PDF Navigation Toolbar**:
+  - **Toolbar Navigation Controls**: Added dedicated Back and Forward buttons directly inside the PDF reader toolbar for smooth navigation through document links and precision anchors.
+
+### Improvements
+
+- **Interactive Frontmatter Links**:
+  - **In-App URL Opening**: Clicking web links in YAML frontmatter properties now opens them directly within your workspace rather than launching an external browser.
+  - **Modifier Key Support**: Holding `Cmd` (or `Ctrl`) or clicking with the middle mouse button opens frontmatter links into an adjacent tab, while standard clicks open them directly in the current tab.
+
+- **VaporNote Navigation & Workflow**:
+  - **Unified Vapor Tab History**: VaporNote tabs now track internal history across notes, web links, images, and PDFs, supporting full back-and-forward traversal.
+  - **Intuitive Tab Insertion**: Opening a new tab now places it immediately adjacent to your active tab instead of appending it to the far end of the tab bar.
+
+- **Workspace Persistence & Restoration**:
+  - **History Restoration**: Restoring previously closed tabs (`Cmd+Shift+T`) now fully restores their complete history stacks.
+  - **Layout Split Retention**: Horizontal and vertical multi-pane split layouts are now reliably preserved across space changes and application restarts.
+
+- **Streamlined Settings**:
+  - **Built-in Core Modules**: Core features are now permanently built-in, decluttering the Settings panel so you can focus on Community Plugins, Shortcuts, and customization.
+
+### Fixes
+
+- **Window & View Management**:
+  - **Prevented Stray Popups**: External link requests triggered from webviews are now safely captured and routed into standard workspace tabs instead of opening unexpected blank windows.
+  - **Eliminated Ghost Views**: Fixed tab teardown handling to ensure hidden WebContentsViews and PDF views are completely detached and concealed, preventing visual overlaps and background resource leaks.
+
+- **Notification Cleanup**:
+  - **Silent Vault Startup**: Suppressed redundant "Folder Opened" notifications when launching directly into an existing vault.
+  - **Reduced Progress Planner Alerts**: Eliminated duplicate cache notifications on startup when tasks and goals are already indexed.
+
+- **Progress Planner Task Parsing**:
+  - **Cleaner Task Titles**: Streamlined priority parsing to strictly target `#high`, `#medium`, and `#low` tags, eliminating legacy clutter from task titles and frontmatter blocks.
+
 ## 0.1.0-alpha.18 - 2026-11-3
 
 ### New Features
