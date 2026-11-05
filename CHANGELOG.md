@@ -1,3 +1,48 @@
+## 0.1.0-alpha.20 - 2026-11-5
+
+### New Features
+
+- **Floating Terminal**:
+  - **Multi-Tab Shell Sessions**: Run multiple independent terminal tabs side-by-side within the same floating window. Create new tabs with the `+` button, by double-clicking empty tab bar space, or using `Cmd/Ctrl + T`. Close tabs with `Cmd/Ctrl + W`.
+  - **Intuitive Tab Navigation**: Quickly switch between terminal tabs using `Cmd/Ctrl + Shift + ]` / `[` or `Cmd/Ctrl + 1–9`.
+  - **Custom Tab Renaming**: Double-click any tab title to rename it. Native text editing shortcuts (like `Cmd/Ctrl + A`) stay scoped cleanly to the rename input without interfering with your shell session.
+  - **Live Drag-and-Drop Reordering**: Rearrange terminal tabs seamlessly on the fly by dragging them across the tab bar.
+  - **Focus Mode**: Dim and blur the workspace background with a dedicated Focus button or the command palette (`Terminal: Toggle Focus Mode`), isolating your active shell session for distraction-free command-line work. Clicking anywhere outside the window exits Focus Mode.
+
+- **VaporNote**:
+  - **Live Drag-and-Drop Reordering**: Reorder scratchpad and web tabs dynamically with smooth pointer drag-and-drop matching the main workspace experience.
+
+### Improvements
+
+- **Floating Terminal**:
+  - **Centered Window Placement**: Recenter or open the floating terminal with auto-calculated horizontal and vertical centering tailored to your current display dimensions.
+  - **Refined Scrollbar & Viewport Gutter**: Replaced hidden scrollbars with a custom scrollbar column and reserved margin so output text never overlaps the scroll gutter.
+  - **Command Palette Commands**: Added quick commands to launch a new terminal tab or toggle focus mode from anywhere in the app.
+
+- **Web Browser & Authentication Popups**:
+  - **Expanded OAuth, SSO & Payment Support**: Added streamlined popup support for Okta, Speedpay, Western Union, SAML endpoints, Apple ID, Discord, GitHub, Auth0, Ping Identity, PayPal, and Stripe.
+  - **Responsive Popup Dimensions**: Popup windows now automatically respect target dimensions requested by services rather than forcing a rigid window size.
+  - **Seamless Window Positioning**: Auth and payment popups open centered over the main app, floating reliably over fullscreen spaces without disrupting your desktop layout.
+  - **Preserved Form Submissions (POST Requests)**: Links and redirects that pass form data (POST bodies) and referrer headers now open correctly in new tabs without dropping session parameters.
+  - **Clean Chrome User-Agent**: Synchronized webview network requests with a clean Chrome user-agent string to prevent login rejections on Google Accounts and sensitive SSO portals.
+
+- **VaporNote**:
+  - **Streamlined Navigation Buttons**: Browser-type tabs in VaporNote now update their Back and Forward buttons reliably as you navigate between pages.
+ 
+### Fixes
+
+- **Floating Terminal**:
+  - **Shortcut Isolation**: Fixed an issue where editor shortcuts or shell signals would collide during text editing and tab renaming.
+  - **Automatic Session Recovery**: If the shell process in your last remaining terminal tab exits, a fresh shell session automatically restarts without requiring a window reload.
+  - **Buffer Preservation**: Passing through keystrokes like `Ctrl + C` preserves native UNIX interrupt (`SIGINT`) behavior without unintentionally triggering GUI clipboard events.
+
+- **VaporNote**:
+  - **Accidental Dismissal**: Removed the `Escape` shortcut that could unexpectedly minimize VaporNote while writing notes or interacting with inputs.
+  - **Navigation State Sync**: Resolved navigation history synchronization issues when navigating backward or forward in embedded web views.
+
+- **Web Viewer**:
+  - **Background Throttling**: Disabled aggressive background throttling on browser tabs and popups, preventing stalled two-factor authentication prompts and interrupted payment flows when the window is in the background.
+
 ## 0.1.0-alpha.19 - 2026-11-4
 
 ### New Features
