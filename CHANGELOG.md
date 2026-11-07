@@ -1,3 +1,41 @@
+## 0.1.0-alpha.21 - 2026-11-7
+
+### New Features
+
+- **Unified Extensions Manager**:
+  - **Installed & Explore Tabs**: Consolidated plugins and scripts under a single, streamlined "Extensions" interface in Settings, making it easy to manage existing add-ons or browse the online community catalog.
+  - **One-Click Installation**: Install community-authored plugins and automation scripts directly from the Explore catalog with zero build steps or manual downloading required.
+  - **Fork to User Workspace**: Decouple any community extension into your personal `user/` extensions folder with a single click, allowing you to freely modify its code without risking community updates overwriting your changes.
+  - **AI Remix & Synthesis Suite**: Multi-select existing extensions to merge their code into unified context bundles. Features real-time token estimation, one-click copying for LLM assistants (Claude, ChatGPT, Google AI Studio), and direct exports to the integrated terminal with pre-scaffolded `PROMPT.md` files.
+  - **Built-in Extension Scaffolding**: Create new zero-build plugins or single-file scripts instantly via a "+ New Extension" modal, automatically creating starter code templates and opening them directly in the editor.
+
+- **Plugin Setting Sliders**:
+  - **Interactive Range Controls**: Plugin developers can now configure smooth slider inputs with custom minimums, maximums, and steps, complete with real-time numeric value feedback.
+
+- **Terminal Directory Launcher**:
+  - **Open Directly to Folder**: Launch a new shell tab inside the built-in terminal targeting specific vault or extension directories automatically.
+
+### Improvements
+
+- **Command Palette**:
+  - **Authorship & Provenance Labels**: Automated scripts registered in the Command Palette now clearly indicate their origin (e.g., `User script` vs. `@author • Community script`) alongside configured hotkeys.
+
+- **Settings Organization**:
+  - **Restructured Navigation**: Cleaned up the Settings sidebar into dedicated categories—*General*, *Extensions*, *Core Features*, and dynamic *Installed Plugins*.
+  - **Integrated Webview Shortcuts**: Moved Webview Domain Shortcuts directly into the Web Viewer settings panel for a more cohesive configuration experience.
+  - **Clickable Extension File Chips**: Each installed extension card displays interactive chips for files like `main.js` and `styles.css`, letting you open code directly in the editor for instant inspection.
+
+- **Toast Notifications**:
+  - **In-Place Updates**: Reusable notification alerts now update existing toast text, status styles, and dimensions dynamically without spawning duplicate popups or flickering.
+
+### Fixes
+
+- **Web Viewer & Popup Detection**:
+  - **Reliable Tab Opening for Login Links**: Replaced brittle domain whitelists with request-based window feature detection. Standard navigation links on services like Google, GitHub, Okta, and Speedpay now consistently open as workspace tabs, reserving floating popup windows strictly for explicit dialogs like payment flows and OAuth authorization windows.
+
+- **Plugin Lifecycle & Style Isolation**:
+  - **Clean Style Tag Cleanup**: Resolved issues where reloading or removing custom plugins could leave orphaned `<style>` tags in the workspace, ensuring changes take effect cleanly and immediately without restarting the app.
+
 ## 0.1.0-alpha.20 - 2026-11-5
 
 ### New Features
