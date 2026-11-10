@@ -1,3 +1,34 @@
+## 0.1.0-alpha.23 - 2026-11-10
+
+### New Features
+
+- **Real-Time Workspace & VaporNote Synchronization**:
+  - **Live Bidirectional Delta Sync**: Edits made to a note in the main editor or inside the floating VaporNote window now synchronize instantly between all active tabs in real time without waiting for manual saves or file reloads.
+  - **Echo-Free Cursor Preservation**: Remote edits merge smoothly in the background without resetting cursor locations or creating echoing update loops.
+
+- **Embedded Google AI Studio Extension Workflow**:
+  - **Integrated Workspace Web Tab**: Launching Google AI Studio from the extension synthesis modal now opens directly inside an editor web tab rather than kicking out to an external browser window.
+  - **Automated Clipboard Hand-off**: Automatically copies the synthesized extension prompt to your clipboard and notifies you upon tab launch for immediate pasting.
+
+### Improvements
+
+- **Typing Performance on Large Documents**:
+  - **Deferred Save Extraction**: The auto-save system now defers full-text document string reads until typing stops, eliminating keystroke latency and memory overhead while typing in long notes.
+
+- **Extension Studio & Remixing UI**:
+  - **Interactive Action Cards**: Replaced standard buttons with distinct, themed action cards featuring clear descriptions, visual feedback, and directional indicators.
+  - **Precise Token Estimation**: Prompt token estimates in the Combine dock and Remix modal are now measured directly against the fully generated prompt payload for accurate context-window planning.
+  - **Simplified Catalog Search**: Streamlined the community extensions view by removing redundant type filters to focus on fast, unified search across all extensions.
+
+- **Quick Switcher & Command Palette**:
+  - **Instant Initial Render**: Command lists and synchronous search items now render immediately upon invocation, removing initial delay when opening the palette.
+  - **Decluttered Interface**: Simplified header icons and badges for a cleaner, distraction-free search layout.
+
+### Fixes
+
+- **Cross-Platform Path Resolution**:
+  - **Multi-Tab File Matching**: Fixed an issue where open tabs or VaporNote instances failed to match the active document due to Windows path separators, leading dot notations, or path casing variations.
+
 ## 0.1.0-alpha.22 - 2026-11-10
 
 ### New Features
