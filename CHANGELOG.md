@@ -1,3 +1,37 @@
+## 0.1.0-alpha.22 - 2026-11-10
+
+### New Features
+
+- **Unified Extensions System**:
+  - **Single Cohesive Platform**: Replaces separate "Plugins" and "Scripts" workflows with a unified extension model located under `.mirage-editor/extensions/`, supporting both full-fledged plugins and lightweight automation scripts.
+  - **Environment & Secrets Manager**: A dedicated settings panel to securely store API keys and environment variables (accessible via `secrets` in your extension code) and register background startup hooks that execute when opening a vault.
+  - **Remote Update Tracking**: The extension catalog now monitors remote hash versions, providing a single-click **Update** button when newer versions of installed community extensions become available.
+
+- **Window Layering & Overlay Priority**:
+  - **Terminal Stacking Control**: Added a new configuration option to choose whether the floating Terminal stays layered above or below VaporNote when both overlays are active simultaneously.
+
+### Improvements
+
+- **Quick Switcher**:
+  - **Asynchronous Search & Infinite Scrolling**: File search now streams results asynchronously in paginated batches, ensuring immediate keyboard responsiveness and smooth scrolling even in large vaults with tens of thousands of files.
+  - **Dynamic Pagination via Keyboard**: Pressing the down arrow past the bottom of the current list automatically requests the next batch of search results without interrupting your navigation flow.
+  - **Live Search Metrics**: An updated badge displays both current page results and total vault matches for your active query and prefix rules.
+  - **Instant Cache & Debounce**: Search input now features micro-debouncing and memory caching, eliminating UI stutter while typing.
+
+- **Settings Interface**:
+  - **Collapsible Two-Level Sidebar**: Reorganized settings navigation into collapsible groups (*Workspace*, *Core Features*, and *Extensions*) that remember their folded or expanded state across sessions.
+  - **Core Features Overview**: Added a central settings hub summarizing built-in research tools (Web Viewer, VaporNote, Progress Planner, Quick Switcher, and AirSketch) with quick navigation shortcuts.
+  - **Interactive Extension File Chips**: Files belonging to an extension (`main.js`, `styles.css`, `manifest.json`) are displayed as clickable chips that jump directly into the editor for instant inspection and editing.
+  - **Simplified Extension Creation & Forking**: Streamlined the creation flow for custom tools into personal `local/` workspaces, and updated the "Fork to Local" action to protect community extensions from being overwritten during updates.
+
+### Fixes
+
+- **Quick Switcher Query Synchronization**:
+  - **Stale Result Prevention**: Implemented query ID checks to drop slow, out-of-order asynchronous search responses when you rapidly backspace or change your search term.
+
+- **Overlay Stacking Sync**:
+  - **Layering Retention on Focus**: Switching focus to the terminal or updating configuration settings immediately updates window depth orders, preventing floating views from being trapped underneath other surfaces.
+
 ## 0.1.0-alpha.21 - 2026-11-7
 
 ### New Features
