@@ -1,3 +1,25 @@
+## 0.1.0-alpha.25 - 2026-11-13
+
+### Improvements
+
+- **VaporNote OS-Wide Floating Performance**:
+  - **Instant Window Transitions**: Eliminated macOS window animation lag and container opacity fade delays when showing, hiding, minimizing, resizing, or toggling fullscreen for the floating VaporNote window and its quick-action modals.
+  - **Reliable Editor Focus on Summon**: Triggering your global VaporNote shortcut while the window is already open in the background now brings it forward and places keyboard focus directly inside the note editor so you can start typing immediately.
+
+- **VaporNote Viewport & Editing Continuity**:
+  - **Scroll & Cursor Preservation**: Minimizing and restoring VaporNote now remembers your exact scroll position, cursor placement, and text selection across Markdown tabs instead of resetting the editor view.
+
+- **Hotkey & Shortcut Recording**:
+  - **Improved macOS Option-Key Support**: Upgraded shortcut capture to recognize physical keys when holding `Option` (`Alt`) on macOS, making combinations like `Option+Space`, `Option+Letter`, `Option+Number`, and `Option+Punctuation` work seamlessly instead of registering alternate symbols or non-breaking spaces.
+
+### Fixes
+
+- **VaporNote Opacity & Visibility Glitches**:
+  - **Hidden Opacity Protection**: Fixed an issue where adjusting VaporNote opacity settings while the floating window was hidden could inadvertently affect its hidden state, and ensured the configured opacity is cleanly applied upon restore or position reset.
+  - **Independent Window Hiding**: Hiding VaporNote in OS-wide floating mode now reliably remembers its last position and dimensions without interfering with the main Mirage Editor window.
+- **Invalid Shortcut Protection**:
+  - **Modifier & Dead-Key Filtering**: Prevented incomplete modifier presses, dead keys, and unconvertible special characters from being saved as broken global shortcuts.
+
 ## 0.1.0-alpha.24 - 2026-11-13
 
 ### New Features
