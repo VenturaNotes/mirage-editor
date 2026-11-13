@@ -1,3 +1,43 @@
+## 0.1.0-alpha.24 - 2026-11-13
+
+### New Features
+
+- **GitHub Account Integration**:
+  - **In-App Device Authorization**: Connect your GitHub account directly from the Extensions tab in Settings without manually generating personal access tokens.
+  - **Streamlined Activation Flow**: Starting the connection automatically copies your one-time activation code to the clipboard, displays a persistent reminder toast, and opens the GitHub verification page right inside a workspace Web Viewer tab.
+  - **Account Status Bar**: View your connected GitHub username and avatar at the top of the Extensions panel, with one-click disconnect support.
+
+- **One-Click Extension Publishing Wizard**:
+  - **Publish Local Extensions**: Local extensions now feature a **Publish** button to package and submit your work directly to the Mirage community registry.
+  - **AI-Assisted Pre-Flight Review**: Uses Gemini to inspect your extension code and suggest an appropriate semantic version bump, catalog card summary, search keywords, capability tags, and a formatted `README.md` with a live Preview/Edit toggle.
+  - **Local Metadata Sync**: Save generated updates directly to your local `manifest.json` and `README.md` before publishing.
+  - **Automated GitHub Dispatch**: Automatically configures your target repository (Collection or Standalone), commits extension files, creates a tagged GitHub Release with attached assets, and opens a Pull Request to the community catalog with real-time step-by-step progress tracking.
+  - **Version Compatibility Gate**: Verifies you are running the latest version of Mirage Editor before publishing, offering a one-click shortcut to the latest release page if an update is required.
+
+- **AI Security Audit for Community Extensions**:
+  - **Pre-Install Code Inspection**: Click the new **Audit** button on any extension in the Explore Catalog to inspect its source code with Gemini before installing.
+  - **Detailed Security Report**: Displays an overall Risk Rating (`LOW`, `MEDIUM`, or `HIGH`), a plain-English summary of what the extension does, vault access scope, detected external network destinations, and specific warnings—with an option to install directly after reviewing.
+
+- **Extension Integrity & Security Killswitch**:
+  - **SHA-256 Verification**: Community extensions are now downloaded in memory and verified against catalog-verified SHA-256 hashes before any files are written to your vault.
+  - **Remote Security Blocklist**: Automatically checks the community blocklist on startup and prevents revoked or malicious extensions from loading, notifying you immediately if a conflict is detected.
+
+### Improvements
+
+- **Explore Catalog Browsing & Filtering**:
+  - **Sorting Controls**: Sort community extensions by **Top Downloads**, **Recently Added**, **Recently Updated**, or alphabetically (**A–Z**).
+  - **Capability Filtering**: Filter the catalog by **Vault-Only**, **Network**, **Audio**, or **Status Bar** capabilities.
+  - **Richer Extension Cards**: Cards now display download counts and updated capability badges (including Network and Terminal indicators), while matching single-character search tokens more accurately.
+  - **Local Catalog Caching**: Catalog data is now cached locally in your vault for faster loading and more reliable browsing.
+- **Release Asset Downloads**: Remote extensions with tagged releases now install directly from verified GitHub Release assets.
+- **Settings Modal Layout**: Expanded the Settings modal dimensions slightly to better accommodate the Extensions publishing and auditing workflows.
+
+### Fixes
+
+- **Safe Extension Rollback**: Failed downloads or SHA-256 integrity mismatches during an extension update now abort cleanly without overwriting or corrupting your existing working installation.
+- **Misleading Web Viewer Notifications**: Fixed an issue where opening release links from modals inside a Web Viewer tab could display an unrelated "Google AI Studio" toast notification.
+- **Vault Settings & Listener Cleanup**: Fixed Settings loading to properly read the active vault's configuration and ensured GitHub authentication listeners are cleanly removed when closing the Settings modal.
+
 ## 0.1.0-alpha.23 - 2026-11-10
 
 ### New Features
