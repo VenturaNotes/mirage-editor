@@ -1,3 +1,27 @@
+## 0.1.0-alpha.26 - 2026-11-14
+
+### New Features
+
+- **List Folding & Indentation Guides**:
+  - **Collapsible Nested Lists**: Added interactive fold and unfold chevrons beside parent items in bulleted lists, numbered lists, and task lists across both the main editor and VaporNote. Hovering a parent item reveals the toggle, and collapsed sections remain marked with an accent-highlighted arrow and a clickable `⋯` badge to expand them again.
+  - **Vertical Indentation Guides**: Added subtle vertical guide lines aligned beneath parent markers for nested list items and indented continuation lines, making multi-level outlines easier to scan at a glance.
+
+### Improvements
+
+- **Nested List Formatting**:
+  - **Flexible Indentation Detection**: Improved list nesting so both 2-space and 4-space (or tab) indentation levels align consistently with indentation guides, without mistakenly styling horizontal rules (`---`) as list items.
+  - **Refined Editor Margins**: Slightly expanded horizontal editor padding in both the main workspace and VaporNote so top-level list fold controls sit cleanly in the margin.
+- **Alternative Keyboard Layout Support**:
+  - **Software-Layout Shortcut Handling**: Updated shortcut recording in Settings and hotkey dispatch across the main workspace and VaporNote to respect your active software keyboard layout (such as Programmer Dvorak and other non-QWERTY layouts) rather than physical hardware key positions, automatically refreshing when your layout changes or the app regains focus.
+
+### Fixes
+
+- **Keyboard Shortcuts & Modifier Keys**:
+  - **Reliable Option/Alt & Shift Shortcuts**: Fixed an issue where `Alt`/`Option` combinations that output accented characters or dead keys—as well as `Shift` combinations on number or top-row punctuation keys—could fail to record or trigger the intended shortcut.
+- **Modal & Palette Transitions**:
+  - **Seamless Backdrop Continuity**: Prevented the dimmed background overlay from briefly flashing or disappearing when an action transitions directly into another dialog—such as opening Settings from the Command Palette or confirming a selection in the Quick Switcher, Heading Switcher, or input/confirmation prompts.
+  - **Clean Dismissal & Focus Restoration**: Ensured keyboard focus returns smoothly to your active editor or workspace when an action completes without opening another modal, while keeping Escape, Cancel, and clicking outside a dialog closing immediately.
+
 ## 0.1.0-alpha.25 - 2026-11-13
 
 ### Improvements
