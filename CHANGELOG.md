@@ -1,3 +1,34 @@
+## 0.1.0-alpha.27 - 2026-11-15
+
+### New Features
+
+- **Extension Workbench (Right Sidebar)**:
+  - **Dedicated AI Modification Sidebar**: Added a collapsible, drag-resizable right sidebar for building and iterating on your local extensions side-by-side with your notes and AI chats, with your preferred sidebar width remembered across sessions.
+  - **Quick Access & Shortcuts**: Open or collapse the workbench anytime using the new sidebar toggle button in the top-right tab bar, the `Cmd+Shift+\` (`Toggle Right Sidebar`) shortcut, or the new **Modify** button on any local extension in Settings.
+  - **Smart Context Bundler & Token Meter**: Pick exactly which extension files to include using `All` / `None` quick toggles and a live estimated token counter before bundling them with the Mirage Extension SDK reference.
+  - **One-Click AI & Terminal Workflows**: Use **Bundle & Open Google AI Studio** to copy your bundle (as an attachable `.md` file on macOS or text fallback), open or focus AI Studio, and switch straight to the Apply tab. You can also use **Copy Bundle File** for any external AI chat or **Open in Internal Terminal** to start a CLI session directly inside your extension's folder.
+  - **Safe Apply & Hot-Reload**: Click **Apply & Reload** to read an AI patch directly from your clipboard, verify JSON and JavaScript syntax before touching any files, apply updates, hot-reload the extension, and review a clear step-by-step log.
+  - **Automatic Checkpoints & Rollback**: A built-in **History** tab automatically saves up to 10 snapshots before every applied patch or terminal session, letting you restore any previous version and reload the extension in one click.
+
+### Improvements
+
+- **Multi-File Extension Publishing & Security**:
+  - **Full Directory Publishing**: Publishing a local extension to the catalog now packages all source files and nested subdirectories (automatically skipping runtime `data.json` and prompt files), rather than only `main.js` and `styles.css`.
+  - **Expanded Security Audits**: Running an AI Security Audit on community extensions in the Explore catalog now fetches and inspects all JavaScript files across subdirectories instead of only `main.js`.
+  - **Per-File Integrity Checks**: Installing remote extensions now validates SHA-256 checksums for every catalog-listed file and blocks unsafe file paths or accidental `data.json` overwrites.
+- **Extension Creation & Runtime**:
+  - **Unified Local Extension Workflow**: The Extension Synthesizer and terminal remix workflow now consistently target `.mirage-editor/extensions/local/<extension-id>/` with an updated, comprehensive Extension SDK reference.
+  - **Consistent Vault Secrets Access**: Standardized class-based extensions so vault secret helpers (`getSecrets` and `getSecret`) are reliably available across extensions.
+- **Editor & Workspace Polish**:
+  - **Cleaner Folded Lists**: Removed the `⋯` fold placeholder pill from collapsed list items in the Markdown editor for a cleaner writing experience.
+  - **Adaptive Webview Layout**: Embedded webview tabs automatically resize and realign smoothly when opening, closing, or resizing the right sidebar.
+
+### Fixes
+
+- **Merge Selection Conflicts**: Fixed an issue in Settings where selecting extensions to merge tracked only the extension ID, which could cause selection collisions between extensions from different authors sharing the same ID.
+- **Extension Stylesheet Collisions**: Fixed an issue where injected extension styles could overwrite one another if author or extension IDs contained special characters.
+- **Clipboard & Input Focus**: Improved reliability when reading patches from the system clipboard and ensured embedded webviews release focus properly when interacting with buttons, dropdowns, and inputs in the right sidebar.
+
 ## 0.1.0-alpha.26 - 2026-11-14
 
 ### New Features
