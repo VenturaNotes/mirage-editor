@@ -1,3 +1,34 @@
+## 0.1.0-alpha.28 - 2026-11-15
+
+### New Features
+
+- **Extension Overlays & Native Switcher**:
+  - **Floating Extension Overlays**: Extensions can now create isolated floating UI overlays that render cleanly above Web Viewer, PDF, and VaporNote views—supporting full-window sizing, automatic window resize tracking, Escape-to-close, app shortcut forwarding, and automatic cleanup when an extension unloads.
+  - **Native Switcher Modals**: Extensions can now open Mirage's top-level switcher modal to present searchable lists of items directly over any open view, including Web Viewer and PDF tabs.
+
+- **Cross-Workspace Extension Bridges**:
+  - **Web Viewer, PDF & VaporNote Awareness**: Extensions can now inspect open Web Viewer and PDF tabs (both standard and VaporNote) and interact with Web Viewer, PDF, and VaporNote tabs directly from custom workflows.
+
+- **Extension Authoring Experience**:
+  - **Automatic Type Definitions (`mirage.d.ts`)**: Mirage now writes an up-to-date `mirage.d.ts` contract directly into your vault's `.mirage-editor/extensions/` directory on startup, giving extension creators instant autocomplete and type checking in their code editor.
+
+### Improvements
+
+- **Extension Modify & History**:
+  - **Descriptive Change Summaries**: Applying patches in the Extension Modify sidebar now displays a concise summary of the overall change, per-file descriptions, and added/removed line counts in the activity log.
+  - **Clearer Restore Checkpoints**: Extension history checkpoints now store longer, cleaner labels (up to 140 characters, trimmed at word boundaries) so it is easier to tell restore points apart.
+  - **Updated Extension SDK Prompts**: Generated modification bundles now document the new overlay, switcher, and cross-workspace APIs for cleaner extension generation.
+
+### Fixes
+
+- **Settings & Configuration Reliability**:
+  - **Protected Custom Hotkeys & Vault Settings**: Settings and global state files now save atomically and retry interrupted reads. If a configuration file becomes temporarily unreadable or corrupted on disk, Mirage falls back to the last valid configuration in memory and refuses to overwrite your file with blank defaults.
+  - **Accurate Vault Targeting**: Fixed issues where changing settings in the Settings modal or switching vaults through VaporNote could target the wrong vault path when saving configuration changes.
+
+- **Modal & Overlay Focus**:
+  - **Clean Switcher Dismissal**: Dismissing a switcher modal without selecting an item (such as pressing `Escape` or clicking outside) now properly cancels the action instead of leaving the request unresolved.
+  - **Focus Restoration**: Hiding or closing a focused extension overlay now automatically returns keyboard focus to the main Mirage window or active tab.
+
 ## 0.1.0-alpha.27 - 2026-11-15
 
 ### New Features
