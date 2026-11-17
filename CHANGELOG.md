@@ -1,3 +1,44 @@
+## 0.1.0-alpha.30 - 2026-11-17
+
+### New Features
+
+- **Source Mode & Live Preview Toggle**:
+  - **Raw Markdown Editing**: Switch between Live Preview and a dedicated Source Mode that exposes raw Markdown syntax, code, and YAML frontmatter without rich widgets or cursor clamping.
+  - **Quick Keyboard Toggle**: Use `Cmd+E` (or `Ctrl+E`) to instantly flip between Source Mode and Live Preview across your active notes without losing your current scroll position.
+  - **Status Bar Mode Chip**: A new status bar indicator in the bottom-right corner displays the active editor mode and allows one-click switching.
+  - **Workspace & VaporNote Sync**: Your chosen view mode is saved per vault and automatically synchronized across all open split leaves, tabs, and VaporNote windows.
+
+- **Auto-Surround Text Selection**:
+  - **Bracket & Delimiter Wrapping**: Typing quotes (`'`, `"`), asterisks (`*`), square brackets (`[`), tildes (`~`), parentheses (`(`), curly braces (`{`), or backticks (`` ` ``) while text is highlighted now wraps the selection instead of replacing it.
+  - **Rapid Markdown & Link Authoring**: Pressing `[` twice around selected text creates double-bracket `[[wikilinks]]`, while pressing `*` twice quickly applies `**bold**` styling.
+  - **Multi-Cursor Support**: Works seamlessly across single selections, reverse selections, and multi-cursor workflows while maintaining your exact cursor position and selection boundaries.
+
+- **Extension Updates & Organization**:
+  - **Installed Extensions Filtering**: Easily organize your installed extensions with new **All**, **Local**, and **Community** filter tabs that display real-time count badges.
+  - **Update All Banner**: A notification banner now appears at the top of the Installed Extensions tab whenever community updates are detected, featuring a one-click **Update All** button.
+  - **Inline Update Buttons**: Community extension cards with newer releases available now show an inline `⬆ Update to v...` button for fast, targeted updates.
+
+### Improvements
+
+- **Live Preview Inline Formatting**:
+  - **Rich Syntax Styling**: Bold (`**bold**`), italic (`*italic*`), and strikethrough (`~~strikethrough~~`) now render with true typography styling in Live Preview, hiding markdown syntax delimiters until the cursor approaches them.
+  - **Protected Spans & Math**: Formatting asterisks and tildes are strictly ignored inside inline code, math equations, tags, and wikilinks to prevent visual layout breakage.
+  - **Nested Styling & Task Lists**: Supports complex nested formatting (such as bold-italic `***text***` or bold-strikethrough) and ensures completed checkboxes display clean, legible strikethrough text.
+
+- **Community Extension Catalog**:
+  - **Last Synced Indicator**: The Explore Catalog view now shows when the extension directory was last synced from GitHub (e.g., "Synced 5m ago") with full timestamp details on hover.
+  - **Background Catalog Synchronization**: The extension catalog and security revocation lists automatically update in the background every 6 hours.
+  - **Real-Time Install Feedback**: Installation and update buttons now show immediate status feedback ("Installing..." / "Updating...") and cleanly refresh extension state once complete.
+
+### Fixes
+
+- **Performance & Background Sync**:
+  - **Eliminated UI Stutters**: Catalog database downloads and delta updates are now decompressed asynchronously in the background, preventing interface lag during refreshes.
+  - **Database Lock Prevention**: Added automatic busy timeouts to extension cache queries to prevent locking contention between concurrent operations.
+
+- **Lifecycle & Cleanups**:
+  - **Safe Extension Unloading**: Hardened extension cleanup routines to verify document availability, preventing errors when extensions are unloaded in headless or background contexts.
+
 ## 0.1.0-alpha.29 - 2026-11-16
 
 ### New Features
