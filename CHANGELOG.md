@@ -1,3 +1,37 @@
+## 0.1.0-alpha.29 - 2026-11-16
+
+### New Features
+
+- **Community Extension Catalog**:
+  - **Instant Full-Text Search & Filtering**: Explore community extensions effortlessly with debounced search and granular capability filters powered directly by an optimized local database.
+  - **Smooth Infinite Scrolling**: Browse extensive catalogs seamlessly with paginated batch loading and a "Load More" indicator, eliminating modal freezing.
+
+- **Extension Publishing & Status Tracking**:
+  - **Publication Status Badges**: Installed extensions now clearly display their release status (`Published`, `Modified`, `PR Open`, `Merged`, or `Not Published`), making it easy to see when local changes haven't been pushed.
+  - **Interactive Submission Queue**: The publishing wizard now detects pending GitHub submissions, giving you one-click shortcuts to view active pull requests or close stuck reviews before initiating a new release.
+  - **Custom Repository Targets**: Added support for choosing and customizing target GitHub repository names when releasing standalone or personal collection extensions.
+
+- **Security Killswitch**:
+  - **Automated Revocation Enforcement**: Revoked extensions are detected automatically upon catalog sync and unloaded from memory immediately, accompanied by an in-app security notification.
+
+### Improvements
+
+- **Fast & Bandwidth-Efficient Catalog Sync**:
+  - **Incremental Delta Updates**: The extension catalog now downloads compressed sequence patches instead of repeatedly fetching full databases, significantly reducing data usage and speeding up refresh times.
+  - **Instant Offline Availability**: Extensions and security blocklists load immediately from local cache on startup before running background updates.
+
+- **AI-Powered Release Preparation**:
+  - **Accurate SemVer Recommendations**: The publishing assistant now recognizes whether an extension is an initial draft or an update, preventing unintended version bumps on first releases while recommending suitable patch, minor, or major increments for updates.
+  - **Code-Verified Documentation**: README generation now produces fully fleshed-out guides (Overview, Features, Trigger Commands, and Usage) based strictly on inspected source code instead of placeholder templates.
+  - **Precise Capability Tagging**: Capabilities such as network access, status bar usage, or vault-only permissions are rigorously cross-checked against actual code calls.
+  - **Polished Markdown Previews**: README previews in the publish wizard now render styled multi-line code blocks, cleaner headings, and lists.
+
+### Fixes
+
+- **Extension Registry Submissions**:
+  - **Duplicate PR Prevention**: Mirage now blocks submitting overlapping pull requests under the same author account, preventing registry race conditions and broken review queues.
+  - **Atomic Cache Writes**: Safeguarded local catalog updates with atomic file operations to eliminate database corruption during aborted downloads or sudden shutdowns.
+
 ## 0.1.0-alpha.28 - 2026-11-15
 
 ### New Features
