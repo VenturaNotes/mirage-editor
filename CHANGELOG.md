@@ -1,3 +1,35 @@
+## 0.1.0-alpha.32 - 2026-11-17
+
+### New Features
+
+- **Sidebar Global Vault Search**:
+  - **Dedicated Search Panel**: Added a new tab switcher in the left sidebar to seamlessly toggle between the File Explorer and full-vault search without taking you out of your workflow.
+  - **Non-Blocking Background Scanning**: Vault searches now process in the background, keeping the editor completely fluid and responsive even across large vaults.
+  - **Advanced Query Syntax**: Search effortlessly using arbitrary substrings, exact quoted phrases (`"exact phrase"`), exclusion operators (`-archived`), `tag:` queries (with nested tag support), `path:` filters, and `file:` filters.
+  - **Search Controls & Regex Mode**: Easily toggle case sensitivity (`Aa`), regular expression matching (`.*`), and expand/collapse states for all result groups.
+  - **Interactive Match Browser**: View matched files grouped with directory paths and hit counters. Each match displays its exact line number and highlighted snippet, allowing you to click directly to that line in your document.
+  - **Streamed & Paginated Results**: Large query results stream into the view progressively with real-time status indicators and a convenient "Show More Results" option.
+
+- **VaporNote In-Page Search**:
+  - **Web & PDF Find Bar**: Introduced an in-page search bar for VaporNote Web and PDF tabs, accessible via standard `Ctrl/Cmd + F`.
+  - **Search Navigation & Live Match Counter**: Displays real-time match counters (e.g., `3/15`) with quick keyboard navigation (`Enter` for next, `Shift + Enter` for previous, and `Escape` to close).
+  - **Dynamic View Layout**: Automatically adjusts web and document viewports when the search bar opens to prevent controls from obscuring page content.
+
+### Improvements
+
+- **Global Search Workflow**:
+  - **Direct Sidebar Routing**: Invoking global search or clicking tags across notes now automatically expands the left sidebar, focuses the search panel, and populates your query immediately instead of relying on a transient modal switcher.
+
+- **Extension Settings Management**:
+  - **Author Badges & Provenance**: Community extension settings tabs now feature clear author tags (e.g., `@author` or `LOCAL`) and full plugin identifier paths.
+  - **Duplicate Name Disambiguation**: The settings navigation now displays author sublabels when multiple installed extensions share identical or similar display names.
+
+### Fixes
+
+- **Extension System**:
+  - **Command Collision Prevention**: Extension command IDs are now properly namespaced by author and plugin ID, preventing conflicts between different plugins and ensuring clean command registration and cleanup.
+  - **Targeted Settings Routing**: Fixed an issue where changing settings on extensions with matching IDs could affect the wrong plugin by routing updates through unique plugin keys.
+
 ## 0.1.0-alpha.31 - 2026-11-17
 
 ### New Features
