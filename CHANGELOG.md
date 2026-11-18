@@ -1,3 +1,31 @@
+## 0.1.0-alpha.31 - 2026-11-17
+
+### New Features
+
+- **Custom Extension Forking**:
+  - **Dedicated Fork Modal**: Forking a community extension to your personal local directory now opens an interactive modal instead of a basic confirmation prompt.
+  - **Customizable Folder Names**: Choose a custom folder name for your local fork, complete with a live destination preview and instant validation against reserved or duplicate names.
+  - **Automatic ID & Workspace Sync**: Mirage automatically updates the extension’s internal manifest, unloads the community version, activates your personal copy, and updates the sidebar without requiring an app reload.
+
+### Improvements
+
+- **Extension Management & Combination**:
+  - **Smoother Merge Selection**: Selecting extensions to combine into a new extension now toggles instantly without re-rendering the whole page or jumping your scroll position.
+  - **Streamlined Catalog Cards**: Removed the redundant "Remix" button from catalog cards in the Explore tab to keep extension actions clean and focused.
+  - **Polished Modal Layout**: Extension subtabs now feature custom scrollbars matching the rest of the dark interface and keep the action dock cleanly positioned.
+
+- **Community & Web Navigation**:
+  - **In-App GitHub Viewer**: Clicking "GitHub" on any community extension now opens the repository directly inside Mirage's built-in web viewer rather than launching an external browser window.
+
+- **Workspace & Navigation**:
+  - **Clarified Sidebar Controls**: Renamed the sidebar toggle command and tab header button to "Toggle Left Sidebar" to distinguish it clearly from right-side panels.
+
+### Fixes
+
+- **Extension Catalog**:
+  - **Explore Infinite Scrolling**: Fixed an issue where scrolling through the community extensions catalog failed to detect the scroll boundary, ensuring additional catalog pages load seamlessly.
+  - **Settings Memory & Scroll Reset**: Resolved an issue where scrolling styles and background event listeners could persist when navigating away from the Extensions settings section.
+
 ## 0.1.0-alpha.30 - 2026-11-17
 
 ### New Features
