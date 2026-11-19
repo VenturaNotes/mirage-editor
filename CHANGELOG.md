@@ -1,3 +1,43 @@
+## 0.1.0-alpha.35 - 2026-11-19
+
+### New Features
+
+- **AI Goal & Task Planner**:
+  - **Right Sidebar Integration**: Switch effortlessly between the Extension Workbench and the new AI Planner using the dedicated mode tabs at the top of the right sidebar.
+  - **Today Queue & Pillar Tracking**: Track your daily focus alongside high-level goal pillars (e.g., career, fitness, projects) with visual progress chips, one-click task completion, and active task launching.
+  - **Smart Context & Task Bundler**: Generate LLM-ready context packages combining personal memory files (`AboutMe.md`, `GoalsAndRules.md`, `SessionState.md`) and open vault tasks. Includes live token estimates, presets for recent or open tasks, and direct 1-click launch to Google AI Studio.
+  - **One-Click Apply & Sync**: Copy an AI response and click **Apply & Reload** to automatically sync your Today Queue, manage `#today` tags across vault files, and update persistent session state notes.
+  - **Safety Checkpoints & Rollback**: Automatically creates snapshots before applying any AI plan (retaining up to 30 history points), allowing you to restore context and vault states at any time.
+
+- **Task Archiving**:
+  - **Archive Completed Tasks Command**: Clean up cluttered notes using the new **Archive Completed Tasks in Active Note** command (`progress:archive-completed`), which automatically migrates completed tasks and their nested subtasks into monthly archive files (e.g., `(Archive) YYYY-MM.md`).
+  - **Heading & Tree Preservation**: Maintains your document's original heading structure and source note title inside the archive file, keeping your task history organized and contextual.
+  - **Customizable Archiving Rules**: Configure a custom archive folder path and toggle strict heading hierarchy rules in **Settings → Progress Planner**.
+
+- **Time Range Scheduling**:
+  - **Duration-Based Time Ranges**: Schedule tasks and calendar events with both start and end times (e.g., `⏰ 1:00PM-2:30PM`, `9:00 AM – 10:15 AM`, or `14:00 to 15:30`) via markdown syntax or frontmatter properties.
+  - **Assign Date & Time Modal**: Easily select both start and end times directly from the updated time picker modal.
+
+### Improvements
+
+- **Agenda & Week Grid View**:
+  - **Proportional Time Blocking**: Timed tasks and iCloud CalDAV calendar events with duration now render with proportional card heights on the week grid to accurately represent blocked time.
+  - **Duration-Preserving Drag & Drop**: Dragging a time-ranged task to a new time slot or day automatically recalculates the end time to preserve the event's duration.
+  - **Clear Range Badges**: Item cards and inspection details now clearly display full time spans (e.g., `10:00AM – 11:30AM`) across all calendar views.
+
+- **Active Task Bar**:
+  - **Ad-Hoc & Routine Support**: The status bar active task indicator now supports ad-hoc steps and daily routine items directly from the AI Planner, even when not bound to a physical markdown file.
+
+- **Settings & Vault Customization**:
+  - **Planner Context Folder**: Choose whether AI Planner context files remain hidden in `.mirage-editor/planner/` or live in a visible vault folder of your choice for direct note-taking.
+
+### Fixes
+
+- **Editor & Cursor Stability**:
+  - **Cursor & Scroll Position Retention**: Archiving completed tasks directly within an active editor document now cleanly updates the document without jumping the viewport scroll position or resetting your cursor.
+  - **Code Block & Frontmatter Protection**: Completed checklist items or headings located inside code blocks and YAML frontmatter comments are now safely ignored during task scanning and archiving.
+  - **Block Anchor Preservation**: Rescheduling tasks from the agenda or toggling `#today` tags now reliably preserves block reference anchors (e.g., `^task-anchor-id`) at the end of the line.
+
 ## 0.1.0-alpha.34 - 2026-11-18
 
 ### New Features
