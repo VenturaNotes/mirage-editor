@@ -1,3 +1,19 @@
+## 0.1.0-alpha.34 - 2026-11-18
+
+### New Features
+
+- **Extension Publishing**:
+  - **Originality & Duplicate Verification**: Mirage now checks extension code against the community catalog before opening the publishing workflow. If an extension is identical to existing catalog entries—or differs only by whitespace and comments—Mirage highlights what is required to make meaningful improvements before submission.
+  - **Smart Fork Review**: When publishing a fork of an existing community extension, Mirage compares your work against the upstream baseline using a compact diff. The publishing assistant evaluates code changes to ensure genuine enhancements (such as bug fixes, new commands, or UX upgrades) while ensuring proper attribution to the original author.
+
+### Improvements
+
+- **Extension Management & Settings**:
+  - **Fork Status Badges**: Added contextual badges (such as `Forked from @author • Unmodified`) directly on extension cards in Settings, giving you immediate visibility into whether a local fork has been customized.
+  - **Contextual Publish Guidance**: The Publish button is now intelligently disabled when attempting to publish an unmodified clone or duplicate, complete with helpful hover tooltips explaining how to proceed.
+  - **Automatic Upstream Snapshots**: Forking an extension now automatically caches the original source baseline locally, making diff calculations and change tracking seamless as you develop.
+  - **Faster Catalog Syncing**: Streamlined community catalog synchronization to use compressed updates and verify code integrity more efficiently in the background.
+
 ## 0.1.0-alpha.33 - 2026-11-18
 
 ### New Features
