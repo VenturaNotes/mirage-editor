@@ -1,3 +1,37 @@
+## 0.1.0-alpha.33 - 2026-11-18
+
+### New Features
+
+- **Extension Fork Provenance**:
+  - **Source Attribution Badges**: Forking a community extension locally now preserves its origin, displaying a clear "Forked from @author" badge on personal extension cards in Settings.
+  - **Isolated Local Metadata**: Forked extensions automatically register as local extensions while retaining upstream version and checksum details to help you track modifications.
+
+- **Math & Live Preview**:
+  - **Dash Macros in Equations**: Math blocks in Live Preview now support `\textemdash` (—) and `\textendash` (–) KaTeX macros, rendering typographic dashes cleanly within formulas without syntax errors.
+
+### Improvements
+
+- **Notification Layering & Timing**:
+  - **Visible Above Modals**: Notification toasts now render above open settings modals and dialog overlays, ensuring key alerts (such as GitHub device activation codes) remain visible and accessible.
+  - **Sequence-Guarded Lifecycle**: Notification timers and cleanup sequences now track active toasts properly, preventing newer toasts from being prematurely dismissed when older ones expire.
+  - **Background Responsiveness**: Notifications no longer freeze or delay their dismiss animations when Mirage is running in the background.
+
+- **Settings Navigation & UX**:
+  - **Live Sidebar Updates**: The Extension Settings navigation list now updates dynamically in real time whenever extensions are installed, enabled, or removed, without requiring you to close and reopen Settings.
+  - **Author Disambiguation Sublabels**: When multiple installed extensions share identical names, the settings sidebar now displays the author handle beneath the title to help differentiate them.
+  - **Immediate Install Feedback**: Extension cards in the Explore and Installed tabs now provide immediate visual feedback ("Installing..." / "Updating...") and refresh instantly upon completion rather than relying on delayed polling.
+
+### Fixes
+
+- **Extension Lifecycle & Reliability**:
+  - **Duplicate Instance Prevention**: Resolved an issue where repeated catalog scans or concurrent loads could trigger duplicate active instances of the same extension.
+  - **Automatic Deletion Cleanup**: Extensions removed from your vault directory are now automatically unloaded and deregistered on subsequent scans.
+  - **Failed Load Notifications**: Added an explicit error notification if a community extension successfully downloads but fails its initial load or execution.
+
+- **Settings & Publishing Integrity**:
+  - **Accurate Publication Checks**: Fixed local extension publication badges so status indicators verify against your currently logged-in GitHub account instead of conflicting with unrelated ledger records.
+  - **Graceful Navigation Fallback**: If an extension whose settings panel is currently open gets removed or unloaded, Settings will safely fall back to the main Extensions overview rather than displaying a blank view.
+
 ## 0.1.0-alpha.32 - 2026-11-17
 
 ### New Features
