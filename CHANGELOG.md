@@ -1,3 +1,35 @@
+## 0.1.0-alpha.36 - 2026-11-19
+
+### New Features
+
+- **Daily Anchors (Deterministic Routine System)**:
+  - **Template-Driven Daily Tasks**: Define routine tasks across one or more notes or specific headings (e.g., `Tasks/Routine.md#Template`) to generate your daily checklist without cluttering your core project files.
+  - **Automatic Rollover & Archiving**: Use the **Refresh Daily** button or run the `Refresh Daily Anchors` command to automatically move completed items into your monthly archive, roll over unfinished tasks without creating duplicates, and respawn fresh template items.
+  - **Inline Sidebar Management**: Track progress, toggle completions, or jump straight to the source file directly from the new collapsible Daily Anchors section in the Today tab.
+  - **Customizable Target Note**: Choose where active daily anchor checklists live in your vault (defaults to `Daily Anchors.md`) via **Settings → Progress Planner**.
+
+- **Chat Check-Ins & AI File Requests**:
+  - **One-Click Chat Check-In**: Use the **Copy Check-In** button in the Today tab to copy a concise snapshot of your live Daily Anchors, focus queue, and pillar progress into an active AI chat without re-uploading entire vault bundles.
+  - **Automated Context Expansion**: When an AI model requests additional omitted notes via `### Request Files`, Mirage identifies valid vault files and provides a **Copy Requested Files** button to copy their content to your clipboard.
+
+### Improvements
+
+- **AI Planner Bundle Customization**:
+  - **Custom "Since" Date Picker**: Replace fixed time presets with a customizable date selector accompanied by an intuitive relative-time badge (e.g., *Today*, *3d ago*, *2w ago*) to select notes modified on or after a chosen date.
+  - **Real-Time Note Filtering & Selection**: Added an instant search bar to find specific task notes, alongside **All** and **None** quick-selection controls.
+  - **Optional Archive Inclusions**: Toggle whether completions from your monthly archive folder are included in the bundle.
+  - **Advanced Completed Task Modes**: Collapse or expand the **Advanced** menu to customize completed tasks in bundled notes—keep all, exclude all, or specify an exact completion date range.
+  - **Persistent Preferences**: Bundle filters, date cutoffs, and archive toggles are now remembered across sessions.
+
+- **Streamlined Workflow & Navigation**:
+  - **Focused Tab Structure**: Streamlined the AI Planner interface down to three primary tabs: **Today**, **1. Bundle**, and **2. Apply**.
+  - **Clear Action Indicators**: Refreshed bundle actions with clear descriptions distinguishing starting a new chat from updating an ongoing session.
+
+### Fixes
+
+- **AI Planner Response Parsing**:
+  - **Resilient Content Block Extraction**: Fixed parsing issues where AI responses containing inner code fences, markdown blocks, or nested headings could fail to import into continuity context notes.
+
 ## 0.1.0-alpha.35 - 2026-11-19
 
 ### New Features
