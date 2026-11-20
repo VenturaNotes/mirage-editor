@@ -1,3 +1,39 @@
+## 0.1.0-alpha.37 - 2026-11-20
+
+### New Features
+
+- **Execution DAG & Interactive Graph View**:
+  - **Visual Left-to-Right Execution Graph**: Switch between a standard task checklist and a full-height interactive dependency graph (DAG) in the AI Planner to instantly see what is ready now and what is blocked.
+  - **Lineage Highlighting & Canvas Navigation**: Smoothly pan, zoom, and auto-fit your graph canvas. Hovering or clicking any task spotlights its upstream blockers (blue) and downstream unlocked tasks (amber) with animated dependency paths.
+  - **Inline Dependency Editor**: Inspect and edit task dependencies directly inside the panel. Quickly add prerequisites, unlink blockers, toggle completion, set active focus, or Cmd/Ctrl+Click to jump straight to the source note.
+
+- **AI Subtask Breakdowns & Suggested Tasks Note**:
+  - **Dedicated Suggested Tasks Storage**: Brand-new proposed tasks and AI-generated subtask breakdowns are now appended to a dedicated vault note (`SuggestedTasks.md` inside your planner context folder by default, customizable in settings).
+  - **Structured Subtask Linking**: Indented subtasks generated in AI planning chats are automatically grouped under dedicated parent headers with back-links, cleanly establishing parent-child execution order.
+  - **Cross-Task Blocker Syntax**: Full support for multi-parent blockers using natural `[after: <task>]` syntax and vault-safe block references (`^td-...`), keeping dependent tasks locked until prerequisites are checked off.
+
+### Improvements
+
+- **AI Planner Workflow & Layout**:
+  - **Collapsible Overview Drawer**: Summary details, pillar balances, and daily anchors can now be collapsed behind an expandable drawer, maximizing vertical space for your active execution graph or list.
+  - **Blocked Task Badges**: Checklist view now displays prominent lock indicators detailing exactly which incomplete tasks are blocking progress.
+  - **Direct Graph Shortcuts**: Added a dependency link button to each checklist item to immediately jump into that task's relationship view in the graph.
+  - **Vault-Wide Clear Completed**: Easily strip `#today` tags from completed tasks across all vault notes in a single click.
+  - **Live Vault Synchronization**: Today's Focus now derives its state directly from live `#today` tags across the vault rather than maintaining separate, duplicative task records.
+
+- **Live Preview Tag Polish**:
+  - **Pillar Subtag Rendering**: Specific pillar tags such as `#today/health` or `#today/writing` now render as clean `#today` pills in the editor while preserving the full pillar tag on hover.
+
+- **Task Archiving & Cache Hygiene**:
+  - **Clean Archive Stripping**: Archiving finished task trees automatically cleans up `#today/<pillar>` tags and temporary execution blocker markers (`^td-...`).
+  - **Pillar Tracking via Tags**: Pillar balances now dynamically detect `#today/<pillar-name>` tags to track progress without requiring manual configuration.
+
+### Fixes
+
+- **Planner Settings & Cache Synchronization**:
+  - **Startup Cache Alignment**: Fixed an issue where planner configuration updates were not immediately propagated to the background task cache on initial vault load.
+  - **Task Title Sanitization**: Resolved an issue where dependency symbols and temporary block identifiers could leak into task titles in the planner cache.
+
 ## 0.1.0-alpha.36 - 2026-11-19
 
 ### New Features
