@@ -1,3 +1,28 @@
+## 0.1.0-alpha.39 - 2026-11-22
+
+### New Features
+
+- **Progress Planner Constellation View**:
+  - **Physics-Based Dependency Constellation**: Reimagined the default Graph view into an organic, force-directed constellation layout that automatically organizes your `#today` tasks, untangles dependency lines, and bundles complex connections.
+  - **Quick Jump & Search Bar**: Added a top search bar to the Graph view allowing you to instantly filter, select, and cycle through actionable tasks using dedicated **Prev** and **Next** buttons.
+  - **Floating Task HUD**: Hovering or clicking any node displays an overlay card at the bottom of the canvas showing task status, category pillar, direct blockers, unlocked downstream tasks, and note origins.
+  - **Dedicated Left-to-Right Mode**: Preserved the structured column hierarchy under a dedicated **L→R** view mode button, letting you seamlessly switch between the new Constellation layout, classic tiered columns, and the standard checklist.
+
+### Improvements
+
+- **Task Graph & Canvas Controls**:
+  - **Hide Completed Tasks**: Added a **Hide Done** toggle to both Graph and L→R canvas views, instantly clearing finished work and repositioning remaining tasks for a cleaner focus space.
+  - **Direct Note Jump**: Holding `⌘` (or `Ctrl`) while clicking any task node in the graph now opens the corresponding file and jumps directly to that task's line number in the editor.
+  - **Pillar-Based Color Coding**: Tasks and indicator dots are now color-coded by category pillar (e.g., health, development), providing immediate visual distinction across different life and project areas.
+  - **Polished Lineage & Edge Visuals**: Updated dependency highlight paths with animated dashed flows and distinct color schemes—sky blue for upstream blockers, pink for downstream unlocks, and vibrant yellow for immediately actionable (Ready) tasks.
+  - **Line Crossing Bridges**: Canvas connectors now draw arched hops over intersecting dependency edges to prevent visual clutter in interconnected graphs.
+  - **Smart Viewport & Auto-Fit**: Improved camera centering and zoom behavior with automatic workspace resize detection, smooth focus panning, and an instant **Fit** button.
+
+### Fixes
+
+- **Panel Lifecycle & Resource Management**:
+  - **Smoother Animations & Focus Retention**: Ensured active physics simulation frames, drag handlers, resize observers, and camera jump timers are properly released when switching views or refreshing tasks, preventing background UI stutter.
+
 ## 0.1.0-alpha.38 - 2026-11-21
 
 ### New Features
