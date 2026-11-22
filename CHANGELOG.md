@@ -1,3 +1,31 @@
+## 0.1.0-alpha.38 - 2026-11-21
+
+### New Features
+
+- **Progress Planner**:
+  - **Whole-Note Task Support**: You can now designate entire notes as actionable items in your daily planner by including `#today` tags in the YAML frontmatter. The planner automatically recognizes note titles and completion statuses alongside regular checklist items.
+  - **Tag-Based Dependency Linking**: Multi-task dependencies and subtasks are now managed seamlessly through structured `#today` tags (e.g., `#today/<pillar>/<id>-<parents>`). This replaces intrusive block IDs with clean, standardized metadata.
+
+### Improvements
+
+- **Progress Planner**:
+  - **Flat Suggested Tasks Organization**: AI-suggested tasks and subtasks are now added directly into a single, clean list within `SuggestedTasks.md`, eliminating cluttered subtask subheadings while preserving full dependency relationships in the visual planner.
+  - **Seamless Dependency Editing**: Adding or removing blocker relationships in the DAG view instantly updates the corresponding `#today` tag parameters without modifying the text of your tasks.
+- **Editor Live Preview**:
+  - **Missing Image Indicators**: When an embedded image cannot be found on disk or fails to load, Live Preview displays a helpful inline badge (`[Image not found: ...]`) instead of leaving an empty space or broken image element.
+  - **Robust Image Path Resolution**: Image widgets now resolve paths using vault link caching and standards-compliant file URLs, ensuring images with special characters or relative attachment paths render reliably.
+- **VaporNote**:
+  - **Enhanced Image Loading & Error States**: Image viewing tabs in VaporNote now load via standardized file URLs and display an explicit error alert if the underlying file has been moved or deleted.
+
+### Fixes
+
+- **Workspace & Tab Restoration**:
+  - **Automatic Pruning of Missing Files**: Restoring a saved workspace layout now automatically ignores files that have been deleted or moved from the vault, preventing broken or blank editor tabs on launch.
+  - **History Navigation for Deleted Files**: Navigating backward or forward through tab history now detects missing vault files and smoothly skips over them to the next available entry.
+  - **PDF History Retention**: Fixed an issue where tab navigation history was lost when navigating to PDF documents.
+- **VaporNote Session Recovery**:
+  - **Stale Tab Cleanup**: VaporNote now checks whether local files exist before reopening previous tabs on startup, cleanly skipping nonexistent files and focusing the nearest valid tab.
+
 ## 0.1.0-alpha.37 - 2026-11-20
 
 ### New Features
