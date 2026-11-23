@@ -1,3 +1,45 @@
+## 0.1.0-alpha.40 - 2026-11-23
+
+### New Features
+
+- **Extension Enable / Disable Toggles**:
+  - **Instant State Switching**: You can now enable or disable any installed local or community extension via a toggle switch in Settings → Extensions without having to uninstall or delete files.
+  - **Clean Lifecycle Management**: Disabling an extension instantly unloads its commands, hotkeys, and custom settings tabs from memory; re-enabling loads it back in immediately.
+  - **Visual Status Badging**: Disabled extensions are clearly marked with a muted card appearance and protected action buttons to prevent accidental reloads.
+
+- **Extension Snapshot History & Visual Diffs**:
+  - **Interactive File Diffs**: Inspect unified diffs directly inside the Right Sidebar History tab to see line-by-line additions, deletions, and hunks across modified extension files.
+  - **Live Uncommitted Changes Tracking**: The sidebar now automatically detects unsaved disk modifications relative to your last snapshot, highlighting total added and removed lines.
+  - **Manual Snapshots**: Create custom-labeled snapshots at any time with a single click or Enter keystroke.
+  - **Side-by-Side Version Comparison**: Select any historical version and compare it against your current working files or another snapshot via dedicated "From" and "To" selectors.
+  - **One-Click Diff Export**: Copy complete unified git-style patches directly to your clipboard for quick sharing, debugging, or pasting into AI prompts.
+  - **Safer Restore & Pruning**: Restoring older checkpoints now prompts to save or discard uncommitted changes before overwriting files, and individual snapshot entries can be removed without modifying active disk files.
+
+### Improvements
+
+- **Extension Filtering & Sorting**:
+  - **Filter & Sort Dropdowns**: Easily filter installed extensions by "All", "Local", or "Community", and sort them alphabetically (A–Z / Z–A) or by last modified date (Newest / Oldest).
+  - **Persistent Preferences**: Your chosen extension filter, sort method, and sort direction are automatically saved and remembered across sessions.
+  - **Accurate Activity Detection**: Extension modification timestamps now evaluate actual source files while excluding internal cache and runtime data files.
+
+- **Configurable Snapshot Retention**:
+  - **Custom History Limits**: Configure the maximum number of history snapshots retained per extension (default: 25) under Settings → Extensions → Environment & Secrets.
+  - **Unlimited & Disabled Modes**: Enable "Keep all (Unlimited)" to retain every revision indefinitely, or set the limit to `0` to disable snapshot caching entirely.
+
+- **Extension Development Workflow**:
+  - **Automatic Initial Baseline**: Creating a new extension or forking a community extension automatically generates a clean "Initial version" snapshot.
+  - **Cleaner History Labels**: Applied patches now record concise, meaningful summary titles instead of repetitive "Before: ..." prefixes.
+  - **Developer Sidebar Awareness**: The extension picker in the Right Sidebar now highlights disabled extensions and prevents attempting to reload inactive extensions into memory.
+
+- **Progress Planner UI Polish**:
+  - **Simplified Column View**: Renamed the "L→R" segmented control and execution DAG header to "Columns" for clearer, more intuitive task hierarchy navigation.
+
+### Fixes
+
+- **Extension Card Layout Wrapping**: Fixed an issue where long extension titles or descriptions could clip or stretch modal rows out of bounds.
+- **Dropdown Menu Lifecycle**: Resolved an issue where filter and sort dropdown menus in Settings could remain open after clicking outside or switching tabs.
+- **Legacy Startup Scripts Cleanup**: Removed obsolete user startup script references in favor of native extension lifecycle hooks.
+
 ## 0.1.0-alpha.39 - 2026-11-22
 
 ### New Features
