@@ -1,3 +1,38 @@
+## 0.1.0-alpha.41 - 2026-11-24
+
+### New Features
+
+- **Live Word & Character Counter**:
+  - **Status Bar Integration**: Track the length of your notes in real time with an unobtrusive counter in the bottom-right corner of the status bar.
+  - **Quick Display Toggle**: Click the status bar counter at any time to toggle between total word count and total character count views.
+  - **VaporNote Context Awareness**: Automatically detects whether you are working in the main workspace or writing inside a floating VaporNote window, seamlessly reflecting the active note's statistics.
+  - **Multilingual & International Text Support**: Accurately tallies hyphenated terms, accented Unicode letters, and CJK (Chinese, Japanese, and Korean) characters alongside standard Latin text.
+
+- **Live Preview Code Syntax Highlighting**:
+  - **Multi-Language Highlighting**: Fenced code blocks now feature syntax highlighting directly inside Live Preview mode, supporting languages such as Python, JavaScript, TypeScript, Shell/Bash, JSON, YAML, CSS, HTML, SQL, Rust, Go, C/C++, Java, and more.
+  - **Clear Token Theming**: Distinctly styles keywords, strings, comments, numbers, functions, and attributes for improved code readability without leaving your notes.
+
+- **One-Click Code Block Copying**:
+  - **Click-to-Copy Language Badges**: Language indicators in the top corner of code blocks now serve as interactive copy buttons, letting you copy an entire code snippet to your clipboard in a single click.
+  - **Visual Copy Feedback**: Badges display an animated "COPIED ✓" state and confirmation tooltip upon copying before smoothly resetting to the language name.
+
+### Improvements
+
+- **Workspace Settings**:
+  - **Document Word Count Toggle**: Added a dedicated option in Workspace Settings to enable or disable the status bar word counter according to your workflow preferences.
+
+- **UI & Layout Polish**:
+  - **Tabular Metric Formatting**: The status bar counter uses tabular numbers to ensure count updates occur smoothly without causing layout shifts or jitter.
+  - **Tactile Code Badges**: Language badges now include refined hover, pressed, and clipboard-copied styling for a more responsive desktop feel.
+
+### Fixes
+
+- **Document Statistics Accuracy**:
+  - **Metadata & Syntax Filtering**: Fixed an issue where non-content markers—such as YAML frontmatter headers, task checkboxes (`[ ]` / `[x]`), and fence delimiter strings—were counted toward document totals. Statistics now reflect only your actual prose and note contents.
+
+- **Focus & State Synchronization**:
+  - **Surface Focus Retention**: Resolved inconsistent status bar updates when switching between the main editor, embedded PDF/web views, and minimized or floating VaporNote windows.
+
 ## 0.1.0-alpha.40 - 2026-11-23
 
 ### New Features
