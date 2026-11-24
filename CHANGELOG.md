@@ -1,3 +1,17 @@
+## 0.1.0-alpha.42 - 2026-11-24
+
+### New Features
+
+- **Extension Modification**:
+  - **SDK Guide Toggle**: You can now choose whether to include the Mirage Extension SDK reference guide when generating modification bundles or terminal prompts, helping you conserve context window space when it isn't needed.
+  - **SDK Token Preview**: View the estimated token size of the SDK guide directly beside the toggle switch to easily evaluate bundle size and token usage before copying or exporting.
+
+### Improvements
+
+- **Extension Workspace**:
+  - **Persistent Bundle Preferences**: Your preference for including or excluding the SDK guide is automatically remembered across app restarts.
+  - **Live Token Metering**: The token estimator in the right sidebar now updates dynamically in real time whenever you toggle the SDK guide or adjust file selections.
+
 ## 0.1.0-alpha.41 - 2026-11-23
 
 ### New Features
