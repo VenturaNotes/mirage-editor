@@ -1,3 +1,38 @@
+## 0.1.0-alpha.43 - 2026-11-25
+
+### New Features
+
+- **Native File Clipboard Copying**:
+  - **Copy Files to System Clipboard**: You can now copy markdown documents, PDFs, local media, and image files directly to your OS clipboard as true system files, letting you paste them immediately into chat apps, emails, or file managers on macOS, Windows, and Linux.
+  - **Custom Export Name on Copy**: When triggering a file copy, a quick prompt allows you to customize the filename before it hits your clipboard—handy for renaming attachments without altering the source note in your vault.
+  - **Command Palette & Toolbar Access**: Run the new **Copy File to Clipboard** command from the Command Palette or click the dedicated icon in your note or viewer header.
+
+- **Customizable Toolbar Actions & Overflow Menus**:
+  - **Toolbar Overflow Menu (`⋮`)**: Added a clean dropdown menu across workspace headers, VaporNote tabs, the PDF viewer, and the Web Viewer to house secondary tools without cluttering your workspace.
+  - **Interactive Button Pinning**: Click the pin icon directly beside any action inside the overflow menu to keep it pinned to your top bar (such as "Open in Default Browser", "Inspect Tab (DevTools)", or "Copy File to Clipboard"), or unpin it to keep your header minimal.
+
+- **VaporNote File Header & Navigation**:
+  - **Dedicated Navigation Bar**: Notes and images viewed inside VaporNote now feature a sleek navigation header showing the active file title/path alongside history back/forward buttons and quick file actions.
+
+### Improvements
+
+- **Workspace Tab Bar Scrolling**:
+  - **Independent Tab Scrolling**: Leaves with many open tabs now smoothly scroll horizontally without disrupting adjacent split-pane controls.
+  - **Scroll Position & Focus Preservation**: Switching tabs or re-ordering tabs automatically scrolls the active tab into view and preserves your horizontal scroll position across reloads.
+
+- **Status Bar Customization**:
+  - **Editor Mode Toggle Visibility**: You can now choose whether to display the "Live Preview / Source" mode chip in the status bar via a new toggle in **Settings → Workspace**.
+
+- **Web Viewer Authentication & Compatibility**:
+  - **Seamless Multi-Hop OAuth Logins**: Reworked browser identity handling and client hints to fix login loops and verification blocks when signing into third-party services (such as Monday.com, Cloudflare, or Google-authenticated apps).
+  - **Preserved Network Performance**: General browsing and media streams now bypass unnecessary header manipulation to preserve native HTTP/2 network framing and load speeds.
+
+### Fixes
+
+- **Menu Positioning & Dismissal**:
+  - **Smart Viewport Clamping**: Header dropdowns now dynamically measure window bounds and anchor positions, preventing menus from clipping off-screen or overlapping window borders.
+  - **Flicker-Free Toggle Behavior**: Resolved rapid-click focus bounce issues so clicking a menu button while its dropdown is open reliably closes it without instantly reopening.
+
 ## 0.1.0-alpha.42 - 2026-11-24
 
 ### New Features
