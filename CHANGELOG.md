@@ -1,3 +1,11 @@
+## 0.1.0-alpha.44 - 2026-11-26
+
+### Fixes
+
+- **Embedded Browser & Authentication**:
+  - **Google Sign-In Compatibility**: Resolved an issue where signing into web services using Google Identity or third-party federated logins could stall or become unresponsive.
+  - **Seamless Login Fallbacks**: Authentication prompts within the web viewer now reliably trigger standard popups and redirect windows, ensuring a smooth sign-in experience across research tools and external sites.
+
 ## 0.1.0-alpha.43 - 2026-11-25
 
 ### New Features
