@@ -1,10 +1,10 @@
 # Mirage Editor
-
-**Your research workflow in one window.**
-
 ![status](https://img.shields.io/badge/status-alpha-orange) ![platform](https://img.shields.io/badge/platform-macOS-lightgrey)
 
----
+
+<img width="2880" height="1800" alt="image" src="https://github.com/user-attachments/assets/0c53751c-4475-4de9-8997-93a6dad7d627" />
+
+<p align="center"><b>Your research workflow in one window.</b></p>
 
 ## Why Mirage?
 
