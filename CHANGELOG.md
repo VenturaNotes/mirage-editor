@@ -1,3 +1,49 @@
+## 0.1.0-alpha.46 - 2026-11-28
+
+### New Features
+
+- **Home Launchpad View**:
+  - **New Tab Experience**: Open a new tab at any time using `Cmd+T` (or `Ctrl+T`) or the new `+` button in the tab bar to access a centralized workspace dashboard.
+  - **Unified Note & Web Search**: Toggle between searching your vault and browsing the web using the mode selector or by simply pressing `Tab` inside the search bar. Instantly open existing notes, create a new note directly from your query, or run web searches.
+  - **Customizable Shortcuts**: Pin your favorite notes, web URLs, and quick tools (such as Calendar and New Note) as dashboard tiles for fast access.
+  - **Recent Notes**: Quickly jump back into your work with a dedicated section displaying your most recently modified notes and relative timestamps.
+
+- **Vault Management & Welcome Screen**:
+  - **No-Vault Welcome Screen**: A polished landing screen now greets you when no vault is loaded, offering quick actions to open existing vaults or create new ones.
+  - **Vault Creation Workflow**: Quickly initialize a new vault folder anywhere on your disk, automatically pre-configured with starter documentation.
+  - **Close Vault Support**: Added a "Close Current Vault" command and settings button to safely close your active workspace and return to the welcome screen without restarting the app.
+
+- **System Trash & File Deletion**:
+  - **Delete Current File Action**: Added a convenient "Delete Current File" action and command available across note editors and PDF viewers.
+  - **Safe Trash Confirmation**: Safeguard your notes with a confirmation prompt that safely moves deleted files directly into your operating system's trash instead of permanently deleting them immediately.
+  - **Automatic Workspace Cleanup**: Automatically closes related open tabs and updates the file tree and metadata cache when a file is deleted.
+
+### Improvements
+
+- **VaporNote macOS Spaces & Window Stability**:
+  - **Stationary Space Behavior**: On macOS, VaporNote now remains completely stationary across Mission Control desktop spaces and full-screen apps, eliminating window sliding, ghosting, or unwanted visual animations during trackpad swipe transitions.
+  - **Smart Focus Retention**: When switching between desktop spaces, VaporNote automatically retains your keyboard focus so you can continue typing uninterrupted.
+  - **Bounds Invariance**: Restoring or summoning VaporNote now strictly preserves your exact window size and position, preventing unwanted window expansion or frame drifting.
+
+- **Workspace Tab Lifecycle**:
+  - **New Tab Button**: Added a dedicated `+` button on the workspace tab strip for rapid tab creation.
+  - **Graceful Tab Closure**: Closing the last open tab in a single-pane workspace now transitions smoothly to the Home Launchpad rather than leaving an empty, inactive pane.
+
+- **Toolbar Pinning & Customization**:
+  - **Pinnable Delete Action**: You can now pin or unpin the "Delete File" button across note, PDF, and file view toolbars from the action overflow menu.
+
+- **Settings Interface**:
+  - **Vault Action Controls**: Workspace settings now feature dedicated buttons to exit the current vault, choose a different directory, or create a brand-new vault.
+
+### Fixes
+
+- **Vault Switching & Memory Cleanup**:
+  - **Complete Resource Disposal**: Switching or closing vaults now reliably unloads plugins, cancels background indexing, resets custom hotkeys, and clears cached metadata to prevent stale state across vaults.
+  - **VaporNote Vault Sync**: VaporNote now flushes unsaved edits and closes vault-specific note and PDF tabs when a vault is closed, while preserving standalone web browsing tabs.
+
+- **Window Sizing on Restore**:
+  - **Fullscreen Dimensions Protection**: Fixed an issue where minimizing or hiding VaporNote while in full-screen mode could overwrite your saved floating window dimensions.
+
 ## 0.1.0-alpha.45 - 2026-11-27
 
 ### New Features
