@@ -1,3 +1,33 @@
+## 0.1.0-alpha.47 - 2026-11-28
+
+### New Features
+
+- **Quick-Access Tools on Home**:
+  - **New Built-in Shortcuts**: The Home view now features quick-launch tiles for Terminal, VaporNote, Extensions, and Calendar to jump directly into your essential tools.
+  - **Extensions Command**: Added a dedicated command (`Settings: Open Extensions`) that opens settings directly to the Extensions manager.
+
+### Improvements
+
+- **Home Tab Visual Redesign**:
+  - **Polished Vector Icons**: Replaced legacy emoji icons across the Home search modes (Notes / Web), search result suggestions, and shortcut tiles with modern, crisp vector icons.
+  - **Refined Tile Styling**: Shortcut tiles now feature dedicated icon wells with subtle border highlights, smooth hover transitions, and an accent-styled button for pinning new shortcuts.
+  - **Streamlined Layout**: Decluttered the Home view to focus entirely on fast navigation, search, and your pinned shortcuts.
+
+- **Vault-Isolated VaporNote**:
+  - **Per-Vault State Management**: VaporNote tabs, window positions, active tab selection, and opacity are now tracked separately per vault.
+  - **Seamless Vault Transitions**: Switching or closing vaults now automatically flushes in-progress note edits and preserves browser tab history, reloading the appropriate VaporNote workspace when returning to a vault.
+
+- **Workspace Navigation & Split Leaves**:
+  - **Auto-Populate New Splits**: Creating a new workspace leaf now automatically renders the Home view so you can immediately search or open notes.
+  - **Reliable New Tab Hotkey**: Pressing `Cmd+T` reliably opens the Home view even if no editor pane currently holds focus.
+  - **Clean Tab Transitions**: Prevented background container overlap when switching between active tabs and Home views in the same pane.
+
+### Fixes
+
+- **VaporNote Window Management**:
+  - **Accurate Minimized Positioning**: Fixed an issue where minimizing VaporNote from fullscreen or floating modes could misplace the minimized widget; it now docks cleanly to the top-right corner.
+  - **Global Shortcut Restoration**: Restored correct window bounds, screen placement, and opacity levels when un-minimizing floating VaporNote windows via global hotkeys.
+
 ## 0.1.0-alpha.46 - 2026-11-28
 
 ### New Features
