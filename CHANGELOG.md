@@ -1,3 +1,36 @@
+## 0.1.0-alpha.45 - 2026-11-27
+
+### New Features
+
+- **Installed Extensions Search**:
+  - **Instant Filtering**: Quickly filter through installed extensions by searching across extension names, IDs, authors, descriptions, version numbers, and contained files.
+  - **Match Counts & Quick Clear**: View real-time match counters (e.g., "3 of 12") and easily clear search terms using the clear button or by pressing `Escape`.
+
+- **Community Extension Update Checker**:
+  - **On-Demand Catalog Sync**: A new **Check Updates** button in the Installed Extensions tab syncs the community catalog and checks your installed extensions against their latest releases.
+  - **Smart Feedback Banners**: Get immediate status notifications indicating whether all extensions are up to date or displaying the number of pending community updates available for download.
+
+- **Dedicated Extension Merge & Remix Mode**:
+  - **Focused Selection Mode**: Activate the new **Merge** mode to select extensions using clear checkboxes, removing clutter from the standard extension list view.
+  - **Full-Card Click Selection**: Quickly select or deselect extensions by clicking anywhere on their cards, complete with live token estimation and prompt previews in the bottom dock.
+
+### Improvements
+
+- **Extension Hot-Reload & Change Detection**:
+  - **Stale Code Indicators**: Mirage now monitors extension files on disk. If an extension's files have been edited or are out of sync with memory, the **Reload** button highlights in amber with a descriptive tooltip prompting you to reload.
+  - **In-Progress Feedback**: The Reload button now displays a "Reloading..." indicator while the extension restarts in the background.
+
+- **Extension Catalog & Card UI Polish**:
+  - **Refreshed Button States**: Install, Update, Fork, and GitHub buttons now feature updated contrast, smoother animations, and distinct color-coded states for pending updates and already-installed items.
+  - **Streamlined Creation Workflow**: The extension creation form now toggles cleanly from a compact **New** button and can be dismissed at any time by pressing `Escape`.
+  - **Cleaner File Badges**: Removed unnecessary icons from extension file chips for a cleaner, more readable card presentation.
+
+### Fixes
+
+- **Settings & State Synchronization**:
+  - **Real-Time Extension State Sync**: Fixed issues where reloading, enabling, or creating an extension in the sidebar did not immediately refresh its status across open settings tabs.
+  - **Safe Reload Handling**: Prevented reload actions from firing on disabled extensions until they are explicitly enabled.
+
 ## 0.1.0-alpha.44 - 2026-11-26
 
 ### Fixes
